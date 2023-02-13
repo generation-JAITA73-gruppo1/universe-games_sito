@@ -1,0 +1,7 @@
+.navbar-list {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: flex-end;
+  padding-right: 3rem;
+}

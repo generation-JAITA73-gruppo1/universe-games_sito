@@ -1,0 +1,23 @@
+<div class="homepage">
+  <div *ngIf="showHomePage" class="homepage-body">
+    <app-overview-news></app-overview-news>
+  </div>
+  <div *ngIf="showListaGames" class="homepage-body">
+    <app-lista-videogiochi></app-lista-videogiochi>
+  </div>
+  <div *ngIf="showListaNews" class="homepage-body">
+    <app-lista-news></app-lista-news>
+  </div>
+  <div *ngIf="showListaReviews" class="homepage-body">
+    <app-lista-recensioni></app-lista-recensioni>
+  </div>
+</div>
+
+<!-- <div
+    class="toTopButton"
+    (click)="scrollToTop()"
+    *ngIf="!showHomePage && !showListaCategories"
+  >
+    <span class="material-symbols-outlined"> arrow_upward </span>
+  </div>
+</div> -->
