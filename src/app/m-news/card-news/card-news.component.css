@@ -1,0 +1,28 @@
+.card-news {
+  display: flex;
+  border: 1px black solid;
+  max-width: 35rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.descrizione-news {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.descrizione-news > h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.immagine-news {
+  height: 8rem;
+}
+
+.immagine-news > img {
+  height: 100%;
+  object-fit: cover;
+}

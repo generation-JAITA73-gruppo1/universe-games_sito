@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CardVideogiocoComponent } from './card-videogioco/card-videogioco.component';
 import { ListaVideogiochiComponent } from './lista-videogiochi/lista-videogiochi.component';
 import { DettaglioVideogiocoComponent } from './dettaglio-videogioco/dettaglio-videogioco.component';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,7 @@ import { DettaglioVideogiocoComponent } from './dettaglio-videogioco/dettaglio-v
     ListaVideogiochiComponent,
     DettaglioVideogiocoComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, HttpClientModule],
   exports: [
     CardVideogiocoComponent,
     ListaVideogiochiComponent,

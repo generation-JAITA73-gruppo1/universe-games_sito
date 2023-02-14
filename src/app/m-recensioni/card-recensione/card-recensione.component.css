@@ -1,0 +1,33 @@
+.card-review {
+  display: flex;
+  border: 1px black solid;
+  width: 100rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.descrizione-review {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contenuto-preview {
+  white-space: nowrap;
+  width: 40rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /*border: 1px solid #000000;*/
+}
+
+.descrizione-review > h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.immagini-review {
+  text-align: center;
+  vertical-align: auto;
+  max-width: 12rem;
+}

@@ -1,0 +1,11 @@
+<div class="card-news" [routerLink]="['/', 'dettaglio-news', id]">
+  <div class="descrizione-news">
+    <h2>{{ title }}</h2>
+    <small>{{ category }} - data: {{ publicationDate }}</small>
+    <p>Tags: {{ tags }}</p>
+  </div>
+  <div class="immagine-news">
+    <img [src]="imageUrl" />
+  </div>
+  <button [routerLink]="'/dettaglio-news/' + id">dettaglio</button>
+</div>
