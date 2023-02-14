@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { News } from 'src/app/model/notizia';
+import { Notizia } from 'src/app/model/notizia';
 import { NewsService } from '../service/news.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { NewsService } from '../service/news.service';
   styleUrls: ['./overview-news.component.css'],
 })
 export class OverviewNewsComponent implements OnInit {
-  news$!: Observable<News[]>;
+  news$!: Observable<Notizia[]>;
 
   constructor(private newsService: NewsService) {}
 

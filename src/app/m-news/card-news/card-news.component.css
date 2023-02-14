@@ -4,6 +4,11 @@
   max-width: 35rem;
   justify-content: space-between;
   margin-bottom: 1rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem gray;
+}
+
+.card-news:active {
+  box-shadow: none;
 }
 
 .descrizione-news {

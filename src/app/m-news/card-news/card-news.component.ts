@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Notizia } from 'src/app/model/notizia';
 
 @Component({
   selector: 'app-card-news',
@@ -6,12 +7,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-news.component.css'],
 })
 export class CardNewsComponent {
-  @Input() id?: string;
-  @Input() title?: string;
-  @Input() category?: string;
-  @Input() imageUrl?: string;
-  @Input() content?: string;
-  @Input() publicationDate?: Date;
-  @Input() authorName?: string;
-  @Input() tags?: string[];
+  @Input() newsDettaglio?: Notizia;
+
+  test() {
+    console.log('click');
+  }
 }

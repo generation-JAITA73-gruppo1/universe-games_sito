@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { News } from 'src/app/model/notizia';
+import { Notizia } from 'src/app/model/notizia';
 import { NewsService } from '../service/news.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { NewsService } from '../service/news.service';
   styleUrls: ['./lista-news.component.css'],
 })
 export class ListaNewsComponent {
-  news$!: Observable<News[]>;
+  news$!: Observable<Notizia[]>;
 
   /*
   STO TRATTANDO LISTA-NEWS COME FOSSE DETTAGLIO PER TESTARE VISUALIZZAZIONE,
@@ -22,5 +22,9 @@ export class ListaNewsComponent {
 
   ngOnInit(): void {
     this.news$ = this.newsService.getNews();
+  }
+
+  filterBy(categoria: string) {
+    // this.news$ = this.newsService.filterNewsBy(categoria);
   }
 }

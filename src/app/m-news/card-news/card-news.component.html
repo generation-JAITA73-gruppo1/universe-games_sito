@@ -1,11 +1,21 @@
-<div class="card-news" [routerLink]="['/', 'dettaglio-news', id]">
+<div
+  class="card-news"
+  [routerLink]="'/dettaglio/news/{{newsDettaglio._id}}'"
+  (click)="test()"
+  *ngIf="newsDettaglio !== undefined"
+>
   <div class="descrizione-news">
-    <h2>{{ title }}</h2>
-    <small>{{ category }} - data: {{ publicationDate }}</small>
-    <p>Tags: {{ tags }}</p>
+    <h2>{{ newsDettaglio.title }}</h2>
+    <small
+      >{{ newsDettaglio.category }} - data:
+      {{ newsDettaglio.publicationDate }}</small
+    >
+    <p>Tags: {{ newsDettaglio.tags }}</p>
   </div>
   <div class="immagine-news">
-    <img [src]="imageUrl" />
+    <img [src]="newsDettaglio.imageUrl" />
   </div>
-  <button [routerLink]="'/dettaglio-news/' + id">dettaglio</button>
+  <button [routerLink]="'/dettaglio/news/' + newsDettaglio._id">
+    dettaglio
+  </button>
 </div>

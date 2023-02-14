@@ -1,4 +1,3 @@
-import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SelectParams } from 'src/app/model/selection';
@@ -11,14 +10,12 @@ import { SelectParams } from 'src/app/model/selection';
 export class HomepageComponent {
   showHomePage: boolean = true;
   showListaGames: boolean = false;
-  showListaCategories: boolean = false;
   showListaNews: boolean = false;
   showListaReviews: boolean = false;
 
   constructor(
-    private route: ActivatedRoute
-  ) // @Inject(DOCUMENT) private document: Document
-  {}
+    private route: ActivatedRoute // @Inject(DOCUMENT) private document: Document
+  ) {}
 
   //   scrollToTop(): void {
   //     return this.document.body.scrollIntoView({
@@ -36,21 +33,18 @@ export class HomepageComponent {
         case 'games':
           this.showHomePage = false;
           this.showListaGames = true;
-          this.showListaCategories = false;
           this.showListaReviews = false;
           this.showListaNews = false;
           break;
         case 'categories':
           this.showHomePage = false;
           this.showListaGames = false;
-          this.showListaCategories = true;
           this.showListaReviews = false;
           this.showListaNews = false;
           break;
         case 'reviews':
           this.showHomePage = false;
           this.showListaGames = false;
-          this.showListaCategories = false;
           this.showListaReviews = true;
           this.showListaNews = false;
           break;
@@ -58,13 +52,11 @@ export class HomepageComponent {
           this.showHomePage = false;
           this.showListaGames = false;
           this.showListaReviews = false;
-          this.showListaCategories = false;
           this.showListaNews = true;
           break;
         default:
           this.showHomePage = true;
           this.showListaGames = false;
-          this.showListaCategories = false;
           this.showListaReviews = false;
           this.showListaNews = false;
       }
@@ -74,7 +66,6 @@ export class HomepageComponent {
   ngOnDestroy() {
     this.showHomePage = true;
     this.showListaGames = false;
-    this.showListaCategories = false;
     this.showListaReviews = false;
     this.showListaNews = false;
   }
