@@ -1,4 +1,4 @@
-export interface News {
+export interface Notizia {
   _id: string;
   title: string;
   category: string;
@@ -10,10 +10,10 @@ export interface News {
   __v: number;
 }
 
-export type NewNews = Omit<News, '_id' | '__v'>;
+export type NewNotizia = Omit<Notizia, '_id' | '__v'>;
 
-export type newsSkimmed = Omit<
-  News,
+export type NotiziaSkimmed = Omit<
+  Notizia,
   | '__v'
   | 'category'
   | 'imageUrl'

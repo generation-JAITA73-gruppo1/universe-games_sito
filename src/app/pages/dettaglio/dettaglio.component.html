@@ -1,1 +1,20 @@
-<p>dettaglio works!</p>
+<div class="dettaglio-page" *ngIf="!categoriaNotFound; else notFound">
+  <div *ngIf="showDettaglioGames" class="homepage-body">
+    <app-dettaglio-videogioco></app-dettaglio-videogioco>
+  </div>
+  <div *ngIf="showDettaglioNews" class="homepage-body">
+    <app-dettaglio-news></app-dettaglio-news>
+  </div>
+  <div *ngIf="showDettaglioReviews" class="homepage-body">
+    <app-dettaglio-recensioni></app-dettaglio-recensioni>
+  </div>
+</div>
+
+<ng-template #notFound>
+  <div class="dettaglio-page">
+    <p>
+      Nessuna sezione del sito con questo nome.<br />
+      <button routerLink="/">Torna alla Home</button>
+    </p>
+  </div>
+</ng-template>

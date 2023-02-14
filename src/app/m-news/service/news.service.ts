@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { News } from 'src/app/model/notizia';
-import { Subject } from 'rxjs';
+import { Notizia } from 'src/app/model/notizia';
+import { map, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +13,19 @@ export class NewsService {
   constructor(private http: HttpClient) {}
 
   getNews() {
-    return this.http.get<News[]>(this.apiUrl);
+    return this.http.get<Notizia[]>(this.apiUrl);
   }
   getNewsId(id: string) {
-    return this.http.get<News>(`${this.apiUrl}/${id}`, {});
+    return this.http.get<Notizia>(`${this.apiUrl}/${id}`, {});
+  }
+
+  filterNewsBy(categoria: string) {
+    return this.getNews().pipe(
+      map((fullList: Array<Notizia>) => {
+        fullList.filter(
+          (obj) => obj.category.toLowerCase() === categoria.toLowerCase()
+        );
+      })
+    );
   }
 }

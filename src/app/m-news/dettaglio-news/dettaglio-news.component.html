@@ -1,1 +1,19 @@
-dettaglio news
+<div class="dettaglioNews" *ngIf="newsDettaglio != undefined; else noDettaglio">
+  <div
+    class="immagine-sfondo"
+    [style]="'background-image: url(' + newsDettaglio.imageUrl + ');'"
+  ></div>
+  <div class="news-head">
+    <h2 class="news-title">{{ newsDettaglio.title }}</h2>
+    <p></p>
+  </div>
+</div>
+
+<ng-template #noDettaglio>
+  <div class="dettaglioNews">
+    <p>
+      Nessuna notizia esistente a questo id.<br />
+      <button routerLink="/">Torna alla Home</button>
+    </p>
+  </div>
+</ng-template>
