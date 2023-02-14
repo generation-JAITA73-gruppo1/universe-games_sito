@@ -1,1 +1,12 @@
-<p>card-recensione works!</p>
+<div class="card-review">
+  <div class="immagini-review">
+    <img [src]="imageUrls" />
+  </div>
+  <div class="descrizione-review">
+    <h2>{{ title }}</h2>
+    <h2>{{ score }}/10</h2>
+    <h3 class="contenuto-preview">{{ content }}</h3>
+  </div>
+
+  <!--- <button [routerLink]="'/dettaglio-games/' + id">dettaglio</button>-->
+</div>

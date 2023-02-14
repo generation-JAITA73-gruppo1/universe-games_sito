@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MNewsModule } from './m-news/m-news.module';
 import { DettaglioComponent } from './pages/dettaglio/dettaglio.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 
@@ -13,7 +14,7 @@ const routes: Routes = [
     component: HomepageComponent,
   },
   {
-    path: 'dettaglio/:cat_name',
+    path: 'dettaglio/:cat_name/:id',
     component: DettaglioComponent,
   },
 ];

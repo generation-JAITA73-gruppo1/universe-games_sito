@@ -1,3 +1,27 @@
-<p>lista-news works!</p>
-Questa è la lista delle news, ordinate cronologicamente. Si possono filtrare
-anche per piattaforma
+<div class="lista-news">
+  <h1 class="title">Lista News</h1>
+  <div class="">
+    <div class="news" *ngFor="let n of news$ | async">
+      <div class="immagine">
+        <img [src]="n.imageUrl" />
+        <p class="img-url">{{ n.imageUrl }}</p>
+      </div>
+
+      <div class="text">
+        <div class="divisore">
+          <h3>{{ n.title }} - {{ n.authorName }}</h3>
+        </div>
+        <div class="post-divisore">
+          <p class="date-category-info">
+            {{ n.category }} | {{ n.publicationDate }}
+          </p>
+          <p class="news-body-text">{{ n.content }}</p>
+          <p>
+            <b>Tags: </b>
+            <span *ngFor="let t of n.tags">#{{ t }} </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
