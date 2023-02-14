@@ -1,0 +1,4 @@
+.lista-games {
+  display: flex;
+  flex-wrap: wrap;
+}
