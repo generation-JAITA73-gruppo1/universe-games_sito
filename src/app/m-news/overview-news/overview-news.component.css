@@ -1,3 +1,4 @@
+
 .first-card {
   width: 70%;
   height: 30rem;
@@ -5,7 +6,7 @@
 
 .card-container {
   width: fit-content;
-  max-width: 25vw;
+  max-width: 20vw;
   max-height: 20rem;
 }
 

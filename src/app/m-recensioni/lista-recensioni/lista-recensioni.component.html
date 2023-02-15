@@ -4,9 +4,6 @@
 <div class="lista-reviews">
   <app-card-recensione
     *ngFor="let r of reviews$ | async"
-    [title]="r.title"
-    [score]="r.score"
-    [content]="r.content"
-    [imageUrls]="r.imageUrls"
+    [reviewDettaglio]="r"
   ></app-card-recensione>
 </div>

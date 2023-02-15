@@ -4,17 +4,14 @@
   object-fit: fill;
 }
 
-.lista-news {
-  text-align: center;
-  margin-bottom: 30rem;
-}
-
 .divisore {
   background-color: darkgray;
   padding: 2rem;
+  text-align: center;
 }
 
 .post-divisore {
+  text-align: center;
   border-style: solid;
   margin-bottom: 4rem;
 }

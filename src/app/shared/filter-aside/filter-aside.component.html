@@ -2,17 +2,31 @@
   <div class="toggle-button" (click)="toggleAside()">Mostra</div>
   <div class="aside-content" [ngClass]="{ 'aside-content-shown': showAside }">
     <h1 class="cell-format">Scegli il filtro</h1>
-    <div class="filter-by-category">
+    <div class="filter-by-category" *ngIf="filterTypes.categories">
       <div class="cell-format">Categoria</div>
       <ul>
+        <li (click)="selectFilter('')"></li>
         <li
           *ngFor="let c of categoriesList"
-          (click)="filterSelect(c)"
+          (click)="selectFilter(c)"
           class="cell-format"
         >
           {{ c }}
         </li>
       </ul>
     </div>
+    <!-- <div class="filter-by-author" *ngIf="filterTypes.authorName">
+      <div class="cell-format">Categoria</div>
+      <ul>
+        <li (click)="selectFilter('')"></li>
+        <li
+          *ngFor="let c of categoriesList"
+          (click)="selectFilter(c)"
+          class="cell-format"
+        >
+          {{ c }}
+        </li>
+      </ul>
+    </div> -->
   </div>
 </div>

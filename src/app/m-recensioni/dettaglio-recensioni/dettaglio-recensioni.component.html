@@ -1,1 +1,46 @@
 <p>dettaglio-recensioni works!</p>
+
+<div
+  class="dettaglioNews"
+  *ngIf="reviewDettaglio != undefined; else noDettaglio"
+>
+  <table class="dettaglio-intera-recensione">
+    <td class="contenuto-review">
+      <div>                  
+            <h2>Titolo: {{ reviewDettaglio.title }} </h2>
+            <h4>Data: {{ reviewDettaglio.publicationDate }}</h4>           
+            <div  class="autore">
+            <h3>Autore: {{ reviewDettaglio.reviewerName }}</h3> 
+            </div>        
+        <p>{{ reviewDettaglio.content }}</p>        
+    </div>
+    </td >
+    <td class="contenuto-gioco-related">
+         <app-card-videogioco [gamesDettaglio]="relatedGame"/>
+    </td>
+  </table>
+
+
+<div class="parte-immagini">
+     <div class="array-img">
+         <div class="immagine" *ngFor="let i of reviewDettaglio.imageUrls"><img [src]="i"/> </div>
+    </div>
+</div>
+   
+
+</div>
+
+
+
+
+<ng-template #noDettaglio>
+  <div class="dettaglioNews">
+    <p>
+      Nessuna notizia esistente a questo id.<br />
+      <button routerLink="/">Torna alla Home</button>
+    </p>
+  </div>
+</ng-template>
+
+
+

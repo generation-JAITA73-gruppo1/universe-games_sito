@@ -1,4 +1,6 @@
 .aside-filter {
+  background-color: yellow;
+  background-attachment: fixed;
   width: 0rem;
   position: relative;
   height: 100%;
@@ -20,7 +22,6 @@
 }
 
 .aside-content {
-  background-color: yellow;
   transform: translateX(-15rem);
   transition-property: all;
   transition-duration: 0.5s;

@@ -11,6 +11,8 @@ import { NewsService } from '../service/news.service';
 })
 export class DettaglioNewsComponent implements OnInit {
   newsDettaglio?: Notizia;
+  news$!: Observable<Notizia[]>;
+
   //   ricetta!: Ricetta;
 
   constructor(
@@ -19,6 +21,8 @@ export class DettaglioNewsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.news$ = this.newsService.getNews();
+
     this.route.params
       .pipe(
         map((params) => params['id'] as string),
@@ -30,5 +34,9 @@ export class DettaglioNewsComponent implements OnInit {
       .subscribe((notizia) => {
         this.newsDettaglio = notizia;
       });
+  }
+
+  filterBy(categoria: string) {
+    // this.news$ = this.newsService.filterNewsBy(categoria);
   }
 }
