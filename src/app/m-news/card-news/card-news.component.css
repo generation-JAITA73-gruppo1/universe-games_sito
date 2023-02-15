@@ -1,7 +1,8 @@
 .card-news {
   display: flex;
   border: 1px black solid;
-  max-width: 35rem;
+  width: 100%;
+  height: 100%;
   justify-content: space-between;
   margin-bottom: 1rem;
   box-shadow: 0.2rem 0.2rem 0.2rem gray;

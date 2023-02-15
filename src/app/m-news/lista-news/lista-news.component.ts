@@ -37,7 +37,9 @@ export class ListaNewsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.filterSubscription.unsubscribe();
+    if (this.filterSubscription != undefined) {
+      this.filterSubscription.unsubscribe();
+    }
     this.selectedCategoryFilter !== '';
   }
 }
