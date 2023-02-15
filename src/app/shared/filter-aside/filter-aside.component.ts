@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  Input,
   OnDestroy,
   OnInit,
   Output,
@@ -18,6 +19,7 @@ export class FilterAsideComponent implements OnInit, OnDestroy {
   categorySubscription!: Subscription;
   showAside: boolean = false;
   @Output() selectedFilter = new EventEmitter<string>();
+  @Input() filterTypes = Array<String>;
 
   constructor(private categoryservice: CategorieService) {}
 
