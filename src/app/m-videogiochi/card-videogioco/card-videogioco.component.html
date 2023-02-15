@@ -1,10 +1,14 @@
-<div class="card-games">
+<div
+  class="card-games"
+  [routerLink]="'/dettaglio/games/' + gamesDettaglio._id"
+  *ngIf="gamesDettaglio !== undefined"
+>
   <div class="immagine-games">
-    <img [src]="coverImage" />
+    <img [src]="gamesDettaglio.coverImage" />
   </div>
   <div class="descrizione-games">
-    <p>{{ title }}</p>
-    <p>{{ category }}</p>
+    <p>Titolo: {{ gamesDettaglio.title }}</p>
+    <p>Console: {{ gamesDettaglio.category }}</p>
   </div>
 
   <!--- <button [routerLink]="'/dettaglio-games/' + id">dettaglio</button>-->

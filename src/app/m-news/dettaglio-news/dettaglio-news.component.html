@@ -1,11 +1,25 @@
 <div class="dettaglioNews" *ngIf="newsDettaglio != undefined; else noDettaglio">
-  <div
-    class="immagine-sfondo"
-    [style]="'background-image: url(' + newsDettaglio.imageUrl + ');'"
-  ></div>
-  <div class="news-head">
-    <h2 class="news-title">{{ newsDettaglio.title }}</h2>
-    <p></p>
+  VERSIONE 2
+
+  <div class="immagine">
+    <img [src]="newsDettaglio.imageUrl" />
+    <p class="img-url">{{ newsDettaglio.imageUrl }}</p>
+  </div>
+
+  <div class="text">
+    <div class="divisore">
+      <h3>{{ newsDettaglio.title }} - {{ newsDettaglio.authorName }}</h3>
+    </div>
+    <div class="post-divisore">
+      <p class="date-category-info">
+        {{ newsDettaglio.category }} | {{ newsDettaglio.publicationDate }}
+      </p>
+      <p class="news-body-text">{{ newsDettaglio.content }}</p>
+      <p>
+        <b>Tags: </b>
+        <span *ngFor="let t of newsDettaglio.tags">#{{ t }} </span>
+      </p>
+    </div>
   </div>
 </div>
 
