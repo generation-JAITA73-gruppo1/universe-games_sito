@@ -5,6 +5,7 @@ import { DettaglioRecensioniComponent } from './dettaglio-recensioni/dettaglio-r
 import { CardRecensioneComponent } from './card-recensione/card-recensione.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { MVideogiochiModule } from '../m-videogiochi/m-videogiochi.module';
 
 @NgModule({
   declarations: [
@@ -12,11 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
     DettaglioRecensioniComponent,
     CardRecensioneComponent,
   ],
-  imports: [CommonModule, RouterModule, HttpClientModule],
   exports: [
     ListaRecensioniComponent,
     DettaglioRecensioniComponent,
     CardRecensioneComponent,
   ],
+  imports: [CommonModule, RouterModule, HttpClientModule, MVideogiochiModule],
 })
 export class MRecensioniModule {}

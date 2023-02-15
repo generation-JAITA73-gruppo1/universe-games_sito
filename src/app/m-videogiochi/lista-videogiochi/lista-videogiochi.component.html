@@ -1,11 +1,7 @@
-<p>lista-videogiochi works!</p>
-
 <h1 class="title">Lista Giochi</h1>
 <div class="lista-games">
   <app-card-videogioco
-    *ngFor="let r of games$ | async"
-    [title]="r.title"
-    [category]="r.category"
-    [coverImage]="r.coverImage"
+    *ngFor="let g of games$ | async"
+    [gamesDettaglio]="g"
   ></app-card-videogioco>
 </div>
