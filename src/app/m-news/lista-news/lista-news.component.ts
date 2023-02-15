@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { filter, Observable, Subject, Subscription } from 'rxjs';
 import { Notizia } from 'src/app/model/notizia';
 import { NewsService } from '../service/news.service';
 
@@ -8,9 +8,11 @@ import { NewsService } from '../service/news.service';
   templateUrl: './lista-news.component.html',
   styleUrls: ['./lista-news.component.css'],
 })
-export class ListaNewsComponent {
-  news$!: Observable<Notizia[]>;
-
+export class ListaNewsComponent implements OnInit, OnDestroy {
+  news!: Notizia[];
+  filterSubscription!: Subscription;
+  //   newsUpdate = new Subject<Notizia[]>();
+  selectedCategoryFilter: string = '';
   /*
   STO TRATTANDO LISTA-NEWS COME FOSSE DETTAGLIO PER TESTARE VISUALIZZAZIONE,
   COLLEGAMENTO COMING SOON
@@ -21,10 +23,21 @@ export class ListaNewsComponent {
   constructor(private newsService: NewsService) {}
 
   ngOnInit(): void {
-    this.news$ = this.newsService.getNews();
+    this.newsService.getNews().subscribe((list) => (this.news = list));
+    // this.newsUpdate.subscribe((list) => (this.news = list));
   }
 
-  filterBy(categoria: string) {
-    // this.news$ = this.newsService.filterNewsBy(categoria);
+  filterListByCat(selectedCategory: string) {
+    this.filterSubscription = this.newsService
+      .filterNewsBy(selectedCategory)
+      .subscribe((list) => {
+        this.news = list;
+        this.selectedCategoryFilter = selectedCategory;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.filterSubscription.unsubscribe();
+    this.selectedCategoryFilter !== '';
   }
 }
