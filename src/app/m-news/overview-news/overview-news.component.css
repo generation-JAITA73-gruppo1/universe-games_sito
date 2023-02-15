@@ -1,11 +1,21 @@
+
 .first-card {
-  background-color: blue;
+  width: 70%;
+  height: 30rem;
 }
+
 .card-container {
   width: fit-content;
-  max-width: 25vw;
+  max-width: 20vw;
   max-height: 20rem;
 }
+
+.lista-news {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .lista-news-secondarie {
   display: flex;
   justify-content: flex-start;
