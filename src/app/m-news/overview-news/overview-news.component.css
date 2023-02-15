@@ -1,0 +1,25 @@
+.first-card {
+  width: 70%;
+  height: 30rem;
+}
+
+.card-container {
+  width: fit-content;
+  max-width: 25vw;
+  max-height: 20rem;
+}
+
+.lista-news {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lista-news-secondarie {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
