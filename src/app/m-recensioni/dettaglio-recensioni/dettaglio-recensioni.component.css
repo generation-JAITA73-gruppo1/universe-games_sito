@@ -1,0 +1,67 @@
+.contenuto-review {
+  border: solid 1px black;
+  text-align: top;
+  vertical-align: top;
+  width: 100%;
+}
+
+.dettaglioNews {
+  padding: 10rem;
+}
+
+.autore {
+  display: flex;
+  justify-content: right;
+}
+
+.contenuto-gioco-related {
+  border: solid 1px black;
+}
+.dettaglio-intera-recensione {
+  max-width: 120rem;
+}
+
+.parte-immagini {
+  max-width: 80rem;
+  height: object-fit;
+  display: flex;
+  justify-content: space-around;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1rem;
+  width: 100%;
+  overflow-y: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.array-img {
+  border: solid 1px black;
+  display: inline;
+}
+.array-img > img {
+  object-fit: cover;
+}
+
+.array-img > div {
+  object-fit: cover;
+}
+
+.slides > div {
+  scroll-snap-align: start;
+}
+
+.slides img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
+}
+
+.immagine {
+  max-height: 50rem;
+}

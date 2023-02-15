@@ -1,6 +1,7 @@
 <div
   class="card-news"
-  [routerLink]="'/dettaglio/news/{{newsDettaglio._id}}'"
+  [routerLink]="'/dettaglio/news/' + newsDettaglio._id"
+  (click)="test()"
   *ngIf="newsDettaglio !== undefined"
 >
   <div class="descrizione-news">

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Lingua } from 'src/app/model/videogioco';
+import { Videogioco } from 'src/app/model/videogioco';
 
 @Component({
   selector: 'app-card-videogioco',
@@ -7,14 +7,5 @@ import { Lingua } from 'src/app/model/videogioco';
   styleUrls: ['./card-videogioco.component.css'],
 })
 export class CardVideogiocoComponent {
-  @Input() id?: string;
-  @Input() title?: string;
-  @Input() category?: string;
-  @Input() releaseDate?: Date;
-  @Input() genre?: string;
-  @Input() softwareHouse?: string;
-  @Input() publisher?: string;
-  @Input() numberOfPlayers?: number;
-  @Input() languages!: Lingua;
-  @Input() coverImage?: string;
+  @Input() gamesDettaglio?: Videogioco;
 }

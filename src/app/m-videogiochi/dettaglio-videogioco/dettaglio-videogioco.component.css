@@ -1,0 +1,19 @@
+.immagine {
+  height: 20rem;
+  width: 20rem;
+}
+
+.dettaglio-intero-gioco {
+  margin-left: 30rem;
+}
+
+img {
+  border: 1px black solid;
+  width: 100%;
+  height: 100;
+}
+
+.contenuto-gioco {
+  padding-top: 8rem;
+  margin-left: 15rem;
+}
