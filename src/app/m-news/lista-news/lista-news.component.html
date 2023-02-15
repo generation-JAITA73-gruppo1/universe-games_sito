@@ -1,6 +1,7 @@
 <div class="lista-news-component">
   <app-filter-aside
     (selectedFilter)="filterListByCat($event)"
+    [filterTypes]="filterTypes"
   ></app-filter-aside>
   <div class="main-content">
     <h1 class="title">Lista News</h1>
