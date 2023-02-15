@@ -3,12 +3,19 @@ Questa è la home dove arriverà l'utente. Mostra una preview di 11 notizie
 sottoforma di card. Il componente card è da creare
 
 <!-- Questo è il botton alla fine dello scroll delle notizie che ci porterà alla lista completa -->
-<button routerLink="/lista/news">Altre notizie</button>
 
 <h1 class="title">Overview news</h1>
 <div routerLink="/dettaglio/news" class="lista-news">
-  <app-card-news
-    *ngFor="let r of news$ | async"
-    [newsDettaglio]="r"
-  ></app-card-news>
+  <div class="first-card">
+    <app-card-news [newsDettaglio]="news[0]"></app-card-news>
+  </div>
+  <div class="lista-news-secondarie">
+    <div
+      class="card-container"
+      *ngFor="let n of news.slice(1, 11); let i = index"
+    >
+      <app-card-news [newsDettaglio]="n"></app-card-news>
+    </div>
+    <button routerLink="/lista/news">Altre notizie</button>
+  </div>
 </div>

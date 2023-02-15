@@ -1,0 +1,16 @@
+.first-card {
+  background-color: blue;
+}
+.card-container {
+  width: fit-content;
+  max-width: 25vw;
+  max-height: 20rem;
+}
+.lista-news-secondarie {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
