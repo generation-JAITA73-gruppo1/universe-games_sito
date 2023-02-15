@@ -1,0 +1,18 @@
+<div class="aside-filter" [ngClass]="{ 'aside-shown': showAside }">
+  <div class="toggle-button" (click)="toggleAside()">Mostra</div>
+  <div class="aside-content" [ngClass]="{ 'aside-content-shown': showAside }">
+    <h1 class="cell-format">Scegli il filtro</h1>
+    <div class="filter-by-category">
+      <div class="cell-format">Categoria</div>
+      <ul>
+        <li
+          *ngFor="let c of categoriesList"
+          (click)="filterSelect(c)"
+          class="cell-format"
+        >
+          {{ c }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
