@@ -6,6 +6,7 @@ import { OverviewNewsComponent } from './overview-news/overview-news.component';
 import { DettaglioNewsComponent } from './dettaglio-news/dettaglio-news.component';
 import { CardNewsComponent } from './card-news/card-news.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     DettaglioNewsComponent,
     CardNewsComponent,
   ],
-  imports: [CommonModule, RouterModule, HttpClientModule],
+  imports: [CommonModule, RouterModule, HttpClientModule, SharedModule],
   exports: [
     ListaNewsComponent,
     OverviewNewsComponent,

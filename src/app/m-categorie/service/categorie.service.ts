@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Categoria } from 'src/app/model/categoria';
 
 @Injectable({
@@ -18,4 +18,8 @@ export class CategorieService {
   getCategoria(id: string) {
     return this.http.get<Categoria>(`${this.apiUrl}/${id}`, {});
   }
+
+  readonly categorieNames$: Observable<string[]> = this.getCategorie().pipe(
+    map((list) => list.map((obj) => obj.name))
+  );
 }

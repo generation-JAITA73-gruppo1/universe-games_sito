@@ -1,28 +1,39 @@
-<div class="lista-news">
-  <h1 class="title">Lista News</h1>
-  <div class="">
-    <button (click)="filterBy('ps5')">Filtra per pc</button>
-    <div class="news" *ngFor="let n of news$ | async">
-      <div class="immagine">
-        <img [src]="n.imageUrl" />
-        <p class="img-url">{{ n.imageUrl }}</p>
-      </div>
-
-      <div class="text">
-        <div class="divisore">
-          <h3>{{ n.title }} - {{ n.authorName }}</h3>
+<div class="lista-news-component">
+  <app-filter-aside
+    (selectedFilter)="filterListByCat($event)"
+  ></app-filter-aside>
+  <div class="main-content">
+    <h1 class="title">Lista News</h1>
+    <h3
+      *ngIf="
+        selectedCategoryFilter !== '' && selectedCategoryFilter !== undefined
+      "
+    >
+      Filtrate per {{ selectedCategoryFilter }}
+    </h3>
+    <div class="news-list">
+      <div class="news" *ngFor="let n of news">
+        <div class="immagine">
+          <img [src]="n.imageUrl" />
+          <p class="img-url">{{ n.imageUrl }}</p>
         </div>
-        <div class="post-divisore">
-          <p class="date-category-info">
-            {{ n.category }} | {{ n.publicationDate }}
-          </p>
-          <p class="news-body-text">{{ n.content }}</p>
-          <p>
-            <b>Tags: </b>
-            <span *ngFor="let t of n.tags">#{{ t }} </span>
-          </p>
+        <div class="text">
+          <div class="divisore">
+            <h3>{{ n.title }} - {{ n.authorName }}</h3>
+          </div>
+          <div class="post-divisore">
+            <p class="date-category-info">
+              {{ n.category }} | {{ n.publicationDate }}
+            </p>
+            <p class="news-body-text">{{ n.content }}</p>
+            <p>
+              <b>Tags: </b>
+              <span *ngFor="let t of n.tags">#{{ t }} </span>
+            </p>
+          </div>
         </div>
       </div>
+      <!-- fine contenitore news singola -->
     </div>
   </div>
 </div>
