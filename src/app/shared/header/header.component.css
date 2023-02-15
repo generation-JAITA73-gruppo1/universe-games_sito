@@ -4,6 +4,7 @@
   background-color: #404040;
   color: white;
   position: relative;
+  box-shadow: 0rem 0.3rem 0.3rem rgb(0, 0, 0);
 }
 
 .company-logo {
@@ -12,6 +13,7 @@
   position: absolute;
   top: 0rem;
   left: 2rem;
+  z-index: 3;
 }
 
 .navbar-list {

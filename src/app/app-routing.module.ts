@@ -14,6 +14,10 @@ const routes: Routes = [
     component: HomepageComponent,
   },
   {
+    path: 'lista/:cat_name/:tag',
+    component: HomepageComponent,
+  },
+  {
     path: 'dettaglio/:cat_name/:id',
     component: DettaglioComponent,
   },

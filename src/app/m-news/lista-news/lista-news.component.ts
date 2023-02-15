@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { filter, Observable, Subject, Subscription } from 'rxjs';
 import { Selezione } from 'src/app/model/filterSelection';
 import { Notizia } from 'src/app/model/notizia';
@@ -27,16 +28,19 @@ export class ListaNewsComponent implements OnInit, OnDestroy {
   CHE GLI METTEREMO IN VISUALIZZAZIONE(SUL NUMERO DI QUANTE SE NE VEDONO)
   */
 
-  constructor(private newsService: NewsService) {}
+  constructor(
+    private newsService: NewsService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.newsService.getNews().subscribe((list) => (this.news = list));
     // this.newsUpdate.subscribe((list) => (this.news = list));
   }
 
-  filterListByCat(selectedCategory: string) {
+  filterListByCategoria(selectedCategory: string) {
     this.filterSubscription = this.newsService
-      .filterNewsBy(selectedCategory)
+      .filterNewsByCategoria(selectedCategory)
       .subscribe((list) => {
         this.news = list;
         this.selectedCategoryFilter = selectedCategory;

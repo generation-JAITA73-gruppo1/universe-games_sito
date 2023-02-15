@@ -1,11 +1,14 @@
 .card-news {
   display: flex;
-  border: 1px black solid;
+  position: relative;
   width: 100%;
   height: 100%;
   justify-content: space-between;
   margin-bottom: 1rem;
-  box-shadow: 0.2rem 0.2rem 0.2rem gray;
+  box-shadow: 0.2rem 0.2rem 0.2rem black;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
 }
 
 .card-news:active {
@@ -13,14 +16,22 @@
 }
 
 .card-news:hover {
-  transform: scale(1.1);
+  transform: scale(1.025);
+  transition-duration: 0.3s;
 }
 
 .descrizione-news {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  background-color: #40404099;
   padding: 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .descrizione-news > h2 {

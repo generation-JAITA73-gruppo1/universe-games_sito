@@ -1,26 +1,35 @@
+.overview-news-component {
+  padding-left: 6rem;
+  padding-right: 6rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
 .first-card {
-  width: 70%;
+  width: 80%;
   height: 30rem;
 }
 
 .card-container {
-  width: fit-content;
-  max-width: 20vw;
-  max-height: 20rem;
+  width: 30rem;
+  height: 20rem;
+  flex-shrink: 0;
 }
 
 .lista-news {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .lista-news-secondarie {
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   overflow-x: auto;
   overflow-y: hidden;
   gap: 2rem;
-  padding: 1rem 2rem;
+  padding: 2rem 4rem;
 }

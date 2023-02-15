@@ -19,14 +19,29 @@ export class NewsService {
     return this.http.get<Notizia>(`${this.apiUrl}/${id}`, {});
   }
 
-  filterNewsBy(categoria: string): Observable<any> {
-    console.log(categoria);
+  filterNewsByCategoria(categoria: string): Observable<any> {
+    // console.log(categoria);
 
     return this.getNews().pipe(
       map((fullList) =>
         fullList.filter(
           (obj) => obj.category.toLowerCase() == categoria.toLowerCase()
         )
+      )
+      //   tap((list) => console.log(list))
+    );
+  }
+
+  filterNewsByTag(tag: string): Observable<any> {
+    // console.log(categoria);
+
+    return this.getNews().pipe(
+      map((fullList) =>
+        fullList.filter((obj) => {
+          for (let o of obj.tags) {
+            o.toLowerCase() == tag.toLowerCase();
+          }
+        })
       )
       //   tap((list) => console.log(list))
     );
