@@ -1,6 +1,5 @@
 .card-news {
   display: flex;
-  border: 1px black solid;
   max-width: 35rem;
   justify-content: space-between;
   margin-bottom: 1rem;

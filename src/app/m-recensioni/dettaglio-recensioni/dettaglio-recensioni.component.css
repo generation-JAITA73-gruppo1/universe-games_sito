@@ -40,26 +40,8 @@
   border: solid 1px black;
   display: inline;
 }
-.array-img > img {
-  object-fit: cover;
-}
-
-.array-img > div {
-  object-fit: cover;
-}
-
-.slides > div {
-  scroll-snap-align: start;
-}
-
-.slides img {
-  height: 100%;
-  width: 100%;
+.immagine {
   object-fit: contain;
-}
-
-.slides::-webkit-scrollbar {
-  display: none;
 }
 
 .immagine {

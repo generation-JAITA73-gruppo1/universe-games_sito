@@ -1,49 +1,48 @@
 .card-review {
   display: flex;
-  border: 1px black solid;
-  width: 100rem;
+  padding: 3rem;
+  padding-bottom: 1rem;
+}
+
+.contenuti-review {
+  background-color: white;
+  display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  align-items: center;
+  border: 4px black solid;
+  transition: transform 0.2s;
+  box-shadow: 0.2rem 0.2rem 0.2rem gray;
 }
 
 .descrizione-review {
-  padding: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  font-size: 1.2rem;
+  padding: 2.5rem;
+  width: 40rem;
+  height: 20rem;
 }
 
-.card-review {
-  margin-left: 7rem;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card-review > * {
-  flex: 1 1 30rem;
+.contenuti-review:hover {
+  transform: scale(1.1);
 }
 
 .contenuto-preview {
+  text-align: center;
   white-space: nowrap;
-  width: 55rem;
-  overflow: hidden;
+  width: 35rem;
+  overflow-x: hidden;
   text-overflow: ellipsis;
   /*border: 1px solid #000000;*/
 }
 
-.descrizione-review > h2 {
-  margin: 0;
-  font-size: 2rem;
-}
-
-h2 {
-  object-fit: cover;
-  flex: wrap;
+.immagine-singola {
 }
 
 .immagini-review {
-  height: 15rem;
-  width: 30%;
+  border-right: 4px black solid;
+
+  height: 20rem;
+  width: 50%;
+  object-fit: cover;
 }
 .immagini-review > img {
   height: 100%;

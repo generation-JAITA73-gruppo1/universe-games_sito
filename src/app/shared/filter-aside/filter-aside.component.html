@@ -2,7 +2,7 @@
   <div class="toggle-button" (click)="toggleAside()">Mostra</div>
   <div class="aside-content" [ngClass]="{ 'aside-content-shown': showAside }">
     <h1 class="cell-format">Scegli il filtro</h1>
-    <div class="filter-by-category" *ngIf>
+    <div class="filter-by-category">
       <div class="cell-format">Categoria</div>
       <ul>
         <li (click)="filterSelect('')"></li>

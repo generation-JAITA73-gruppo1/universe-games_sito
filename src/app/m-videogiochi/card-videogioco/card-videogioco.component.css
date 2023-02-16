@@ -5,19 +5,33 @@
   justify-content: space-between;
   margin-bottom: 1rem;
   flex-direction: column;
-  justify-content: space-between;
   padding: 1.2rem;
-  flex-direction: column;
   text-align: center;
+  transition: transform 0.2s;
+}
+
+.card-games:hover {
+  transform: scale(1.1);
 }
 
 .descrizione-games {
-  border: 1px black solid;
+  box-shadow: 10px 10px 5px gray;
+  background-color: white;
+  border: 5px black solid;
 }
 
 .immagine-games {
-  height: 15rem;
+  box-shadow: 10px 15px 5px gray;
+  border: 5px black solid;
+  border-bottom: none;
+  height: 25rem;
   width: 100%;
+}
+
+.descrizione-review {
+  padding: 1.2rem;
+  width: 50rem;
+  height: 20rem;
 }
 
 .immagine-games > img {

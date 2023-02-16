@@ -10,15 +10,29 @@
 
 .main-content {
   width: 100%;
+  padding: 4rem;
 }
 
 .news {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  height: 30rem;
+  width: 100%;
+  padding-bottom: 5rem;
+}
+.text {
+  height: 100%;
+  border: 3px black solid;
+}
+.news-body-text {
+  height: 100%;
+  overflow: hidden;
 }
 
 .news > .immagine {
+  border: 3px black solid;
+  height: 100%;
   width: 20rem;
 }
 
@@ -27,11 +41,14 @@
 }
 
 .divisore {
+  padding-top: 1rem;
   background-color: darkgray;
-  padding: 2rem;
+  padding-bottom: 1rem;
 }
 
 .post-divisore {
-  border-style: solid;
-  margin-bottom: 4rem;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
 }
