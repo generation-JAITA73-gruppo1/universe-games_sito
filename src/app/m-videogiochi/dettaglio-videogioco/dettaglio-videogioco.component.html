@@ -30,20 +30,22 @@
                 <b>Lingue Doppiate: </b>
                 <div>
                   <ul>
-                    <div *ngFor="let v of gamesDettaglio.languages.voice">
-                      <li>
-                        {{ v }}
-                      </li>
-                    </div>
+                    <li *ngFor="let v of gamesDettaglio.languages.voice">
+                      [{{ v }}]
+                    </li>
                   </ul>
                 </div>
               </td>
+            </tr>
+            <br />
+
+            <tr>
               <td>
                 <b>Lingue Sottotitolate: </b>
                 <div>
                   <ul>
                     <li *ngFor="let t of gamesDettaglio.languages.text">
-                      {{ t }}
+                      [{{ t }}]
                     </li>
                   </ul>
                 </div>
@@ -53,9 +55,12 @@
         </div>
       </td>
     </tr>
-    <tr>
-      <div class="related-reviews">
-        <app-card-recensione></app-card-recensione>
+    <tr class="tr-contenitore-reviews" *ngIf="relatedReview !== undefined">
+      RECENSIONI
+      <div class="related-reviews" *ngFor="let r of relatedReview">
+        <div class="card-recensione">
+          <app-card-recensione [reviewDettaglio]="r"></app-card-recensione>
+        </div>
       </div>
     </tr>
   </table>

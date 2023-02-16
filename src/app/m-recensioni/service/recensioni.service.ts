@@ -23,6 +23,20 @@ export class RecensioniService {
     return this.http.get<Recensione>(`${this.apiUrl}/${id}`, {});
   }
 
+  getRecensioniByGameId(videogiocoId: string): Observable<any> {
+    console.log(videogiocoId);
+
+    return this.getRecensioni().pipe(
+      map((fullList) =>
+        fullList.filter(
+          (obj) =>
+            obj.reviewedGame.id.toLowerCase() == videogiocoId.toLowerCase()
+        )
+      ),
+      tap((list) => console.log(list))
+    );
+  }
+
   sortRecensioniBy(sortType: string): Observable<Recensione[]> {
     console.log(sortType);
 
@@ -53,4 +67,5 @@ export class RecensioniService {
   //   private getTimo(date?: Date): any {
   //     return date != null ? date.getTime() : 0;
   //   }
+
 }
