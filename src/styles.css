@@ -1,6 +1,7 @@
-* {
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
 
 img {
   width: 100%;
@@ -17,4 +18,23 @@ body {
   padding: 0;
   margin: 0;
   background-color: white;
+  font-family: Lor;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Oswald", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Lora", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { filter, Observable, Subject, Subscription } from 'rxjs';
+import { Selezione } from 'src/app/model/filterSelection';
 import { Notizia } from 'src/app/model/notizia';
 import { NewsService } from '../service/news.service';
 
@@ -11,7 +13,13 @@ import { NewsService } from '../service/news.service';
 export class ListaNewsComponent implements OnInit, OnDestroy {
   news!: Notizia[];
   filterSubscription!: Subscription;
-  //   newsUpdate = new Subject<Notizia[]>();
+  filterTypes: Selezione = {
+    categories: true,
+    newsAuthorName: true,
+    reviewAuthorName: false,
+    tag: true,
+    game_id: false,
+  };
   selectedCategoryFilter: string = '';
   /*
   STO TRATTANDO LISTA-NEWS COME FOSSE DETTAGLIO PER TESTARE VISUALIZZAZIONE,
@@ -20,16 +28,19 @@ export class ListaNewsComponent implements OnInit, OnDestroy {
   CHE GLI METTEREMO IN VISUALIZZAZIONE(SUL NUMERO DI QUANTE SE NE VEDONO)
   */
 
-  constructor(private newsService: NewsService) {}
+  constructor(
+    private newsService: NewsService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.newsService.getNews().subscribe((list) => (this.news = list));
     // this.newsUpdate.subscribe((list) => (this.news = list));
   }
 
-  filterListByCat(selectedCategory: string) {
+  filterListByCategoria(selectedCategory: string) {
     this.filterSubscription = this.newsService
-      .filterNewsBy(selectedCategory)
+      .filterNewsByCategoria(selectedCategory)
       .subscribe((list) => {
         this.news = list;
         this.selectedCategoryFilter = selectedCategory;
@@ -37,7 +48,9 @@ export class ListaNewsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.filterSubscription.unsubscribe();
+    if (this.filterSubscription != undefined) {
+      this.filterSubscription.unsubscribe();
+    }
     this.selectedCategoryFilter !== '';
   }
 }

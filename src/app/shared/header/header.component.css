@@ -1,7 +1,68 @@
+.header-area {
+  width: 100%;
+  top: 0%;
+  background-color: #404040;
+  color: white;
+  position: relative;
+  box-shadow: 0rem 0.3rem 0.3rem rgb(0, 0, 0);
+}
+
+.company-logo {
+  height: 10rem;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 0rem;
+  left: 2rem;
+  z-index: 3;
+}
+
+.sbinna {
+  transform: rotate3d(2, 1, 1, 720deg);
+  transition-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
 .navbar-list {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 0rem;
   justify-content: flex-end;
-  padding-right: 3rem;
+  margin: 0;
+  padding: 0 2rem;
+}
+
+.navbar-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-item > a > span {
+  font-size: 2.5rem;
+  color: #1c1b1f;
+  font-weight: 700;
+}
+
+.navbar-item > a > h4 {
+  letter-spacing: 0.2rem;
+  font-size: 1.2rem;
+}
+
+.navbar-item a {
+  height: 100%;
+  padding: 0.5rem 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.navbar-item a:hover {
+  background-color: gray;
+  box-shadow: 0.2rem 0rem 0.5rem black inset;
+  text-shadow: 0.1rem 0rem 0.15rem rgba(0, 0, 0, 0.5);
+  transition-property: all;
+  transition-duration: 0.2s;
 }

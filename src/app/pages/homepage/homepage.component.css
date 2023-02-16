@@ -1,9 +1,14 @@
 .homepage {
   width: 100%;
+  background-image: url("/assets/images/disco-skyline-wallpaper.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .homepage-body {
   width: 100%;
-  padding-top: 4rem;
   padding-bottom: 4rem;
+  /* background-color: white; */
+  background-color: rgba(0, 0, 0, 0.775);
 }
