@@ -42,6 +42,12 @@
   padding-left: 4rem;
 }
 
+.publication-detail {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .author-details {
   display: flex;
   justify-content: flex-start;

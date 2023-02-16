@@ -5,19 +5,24 @@
       <!-- <p class="img-url">{{ newsDettaglio.imageUrl }}</p>-->
       <div class="title">
         <h3>{{ newsDettaglio.title }}</h3>
-        <div class="author-details">
-          <p>
-            by <b>{{ newsDettaglio.authorName }}</b>
-          </p>
+        <div class="publication-detail">
+          <div class="author-details">
+            <p>
+              by <b>{{ newsDettaglio.authorName }}</b>
+            </p>
+          </div>
+          <div class="date-category-info">
+            <p>
+              {{ newsDettaglio.category }} |
+              <b>{{ newsDettaglio.publicationDate }}</b>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="news-body">
     <div class="news-body-text">
-      <p class="date-category-info">
-        {{ newsDettaglio.category }} | {{ newsDettaglio.publicationDate }}
-      </p>
       <p class="long-text">{{ newsDettaglio.content }}</p>
       <div class="tag-container">
         <p><b>Tags: </b></p>

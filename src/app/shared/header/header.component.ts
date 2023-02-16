@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,13 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   isSbinnable = false;
 
-  //   sbin() {
-  //     this.isSbinnable = true;
-  //     setTimeout((this.isSbinnable = false), 1000);
-  //   }
+  constructor(private router: Router) {}
+
+  sbin() {
+    this.isSbinnable = true;
+    this.router.navigateByUrl('/');
+    setTimeout(() => {
+      this.isSbinnable = false;
+    }, 1500);
+  }
 }
