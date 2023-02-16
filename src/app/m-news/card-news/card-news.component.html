@@ -1,7 +1,6 @@
 <div
   class="card-news"
   [routerLink]="'/dettaglio/news/' + newsDettaglio._id"
-  (click)="test()"
   *ngIf="newsDettaglio !== undefined"
   [style]="'background-image: url(' + newsDettaglio.imageUrl + ')'"
 >

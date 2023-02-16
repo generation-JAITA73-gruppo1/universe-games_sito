@@ -9,6 +9,7 @@
   overflow: hidden;
   background-position: center;
   background-size: cover;
+  transition: transform 0.3s;
 }
 
 .card-news:active {
@@ -16,8 +17,7 @@
 }
 
 .card-news:hover {
-  transform: scale(1.025);
-  transition-duration: 0.3s;
+  transform: scale(1.05);
 }
 
 .descrizione-news {
