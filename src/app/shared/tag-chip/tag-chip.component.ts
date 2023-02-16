@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TagChipComponent {
   @Input() tagText!: string;
+  @Input() tagLink!: string;
 }

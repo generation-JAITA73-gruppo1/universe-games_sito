@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
-
 img {
   width: 100%;
   height: 100%;
@@ -37,4 +36,9 @@ h5 {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.long-text {
+  line-height: 2rem;
+  text-align: justify;
 }

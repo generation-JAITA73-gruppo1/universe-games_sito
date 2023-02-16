@@ -5,6 +5,8 @@ import { ListaVideogiochiComponent } from './lista-videogiochi/lista-videogiochi
 import { DettaglioVideogiocoComponent } from './dettaglio-videogioco/dettaglio-videogioco.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { MRecensioniModule } from '../m-recensioni/m-recensioni.module';
+import { CardRecensioneComponent } from '../m-recensioni/card-recensione/card-recensione.component';
 
 @NgModule({
   declarations: [

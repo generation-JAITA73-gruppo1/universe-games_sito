@@ -1,7 +1,7 @@
 .lista-news-component {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
 }
 
 .news-list {
@@ -23,6 +23,8 @@
 }
 .text {
   height: 100%;
+  display: flex;
+  flex-direction: column;
   border: 3px black solid;
 }
 .news-body-text {
@@ -40,15 +42,15 @@
   width: 100%;
 }
 
-.divisore {
+.news-title {
   padding-top: 1rem;
   background-color: darkgray;
   padding-bottom: 1rem;
 }
 
-.post-divisore {
+.news-body {
   height: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1rem;
   display: flex;
 }
