@@ -1,10 +1,23 @@
 .title {
   margin-left: 3.5rem;
+  text-align: right;
+  color: white;
 }
 
 .lista-reviews {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  row-gap: 2rem;
+  column-gap: 4rem;
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 1900px) {
+  .lista-review {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .sortbar {
@@ -13,11 +26,10 @@
 }
 
 .lista-recensioni.component {
-  padding-bottom: 4rem;
+  border: 3px solid green;
 }
 
 .main-content {
-  width: 100%;
   padding: 4rem 7rem;
   padding-bottom: 8rem;
 }

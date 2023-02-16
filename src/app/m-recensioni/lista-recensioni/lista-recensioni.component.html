@@ -6,6 +6,7 @@
       </div> -->
     <div class="lista-reviews">
       <app-card-recensione
+        class=""
         *ngFor="let r of reviews$ | async"
         [reviewDettaglio]="r"
       ></app-card-recensione>
