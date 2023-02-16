@@ -25,11 +25,13 @@
             <p class="date-category-info">
               {{ n.category }} | {{ n.publicationDate }}
             </p>
-            <p class="news-body-text">{{ n.content }}</p>
-            <p>
+            <div class="news-body-text">
+              <p>{{ n.content }}</p>
+            </div>
+            <div class="tags">
               <b>Tags: </b>
-              <span *ngFor="let t of n.tags">#{{ t }} </span>
-            </p>
+              <div *ngFor="let t of n.tags">#{{ t }}</div>
+            </div>
           </div>
         </div>
       </div>

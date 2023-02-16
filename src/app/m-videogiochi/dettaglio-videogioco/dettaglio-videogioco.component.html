@@ -1,16 +1,13 @@
-<p>dettaglio-videogioco works!</p>
-
 <div
-  class="dettaglioNews"
+  class="dettaglio-games"
   *ngIf="gamesDettaglio != undefined; else noDettaglio"
 >
-  VERSIONE 2
   <table class="dettaglio-intero-gioco">
     <tr>
-      <td>
+      <td class="td-immagine">
         <div class="immagine">
-          <img [src]="gamesDettaglio.coverImage" />
-          <p class="img-url">{{ gamesDettaglio.coverImage }}</p>
+          <img class="immagine-src" [src]="gamesDettaglio.coverImage" />
+          <!--<p class="img-url">{{ gamesDettaglio.coverImage }}</p>-->
         </div>
       </td>
       <td>
@@ -22,28 +19,37 @@
           <p>Publisher: {{ gamesDettaglio.publisher }}</p>
           <p>Numero di giocatori: {{ gamesDettaglio.numberOfPlayers }}</p>
 
-          <div>
-            <b>Lingue Doppiate: </b>
-            <ul>
-              <div *ngFor="let v of gamesDettaglio.languages.voice">
-                <li
-                  *ngIf="
-                    gamesDettaglio.languages.voice[0] !== 'undefined' &&
-                    gamesDettaglio.languages.voice.length > 0
-                  "
-                >
-                  {{ v }}
-                </li>
-              </div>
-            </ul>
-          </div>
-
-          <b>Lingue Sottotitolate: </b>
-          <div>
-            <ul>
-              <li *ngFor="let t of gamesDettaglio.languages.text">{{ t }}</li>
-            </ul>
-          </div>
+          <table class="tabella-lingue" style="width: 100%">
+            <tr>
+              <td
+                *ngIf="
+                  gamesDettaglio.languages.voice[0] != undefined ||
+                  gamesDettaglio.languages.voice.length > 0
+                "
+              >
+                <b>Lingue Doppiate: </b>
+                <div>
+                  <ul>
+                    <div *ngFor="let v of gamesDettaglio.languages.voice">
+                      <li>
+                        {{ v }}
+                      </li>
+                    </div>
+                  </ul>
+                </div>
+              </td>
+              <td>
+                <b>Lingue Sottotitolate: </b>
+                <div>
+                  <ul>
+                    <li *ngFor="let t of gamesDettaglio.languages.text">
+                      {{ t }}
+                    </li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </table>
         </div>
       </td>
     </tr>
