@@ -10,10 +10,16 @@ import { VideogiochiService } from '../service/videogiochi.service';
 })
 export class ListaVideogiochiComponent {
   games$!: Observable<Videogioco[]>;
+  showOverlay: boolean = false;
 
   constructor(private videogiochiService: VideogiochiService) {}
 
   ngOnInit(): void {
+    this.showOverlay = false;
     this.games$ = this.videogiochiService.getVideogiochi();
+  }
+
+  toggleOverlay() {
+    this.showOverlay = !this.showOverlay;
   }
 }

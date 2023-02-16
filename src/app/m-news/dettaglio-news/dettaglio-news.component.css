@@ -2,28 +2,76 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+
+.head {
+  width: 100%;
+  padding: 0 2rem;
 }
 
 .immagine {
-  border-top: 5px black solid;
+  position: relative;
   width: 100%;
   height: 25rem;
   object-fit: contain;
-  margin-bottom: -0.3rem;
 }
 
-.divisore {
+.title {
+  position: absolute;
   background-color: darkgray;
   padding: 1rem;
-  text-align: center;
-  border-top: 5px black solid;
-  border-bottom: 5px black solid;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  background-color: #40404099;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.title > h3 {
+  margin: 0;
+  font-size: 2rem;
+  text-overflow: ellipsis;
+  text-align: left;
+  width: fit-content;
+  padding-left: 4rem;
 }
 
-.post-divisore {
-  padding: 1.2rem;
+.author-details {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 5rem;
+}
+
+.author-details p {
+  display: block;
+}
+
+.news-body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.news-body-text {
+  max-width: 70vw;
+  height: 100%;
   text-align: left;
-  width: 90rem;
-  padding-left: 30rem;
+  background-color: white;
+  padding: 3rem 5rem;
+}
+
+.tag-container {
+  display: flex;
+  align-items: center;
+}
+
+.tag-container > p {
+  vertical-align: middle;
+  margin-right: 1rem;
 }

@@ -1,22 +1,33 @@
 <div class="dettaglioNews" *ngIf="newsDettaglio != undefined; else noDettaglio">
-  <div class="immagine">
-    <img [src]="newsDettaglio.imageUrl" />
-    <!-- <p class="img-url">{{ newsDettaglio.imageUrl }}</p>-->
-  </div>
-
-  <div class="text">
-    <div class="divisore">
-      <h3>{{ newsDettaglio.title }} - {{ newsDettaglio.authorName }}</h3>
+  <div class="head">
+    <div class="immagine">
+      <img [src]="newsDettaglio.imageUrl" />
+      <!-- <p class="img-url">{{ newsDettaglio.imageUrl }}</p>-->
+      <div class="title">
+        <h3>{{ newsDettaglio.title }}</h3>
+        <div class="author-details">
+          <p>
+            by <b>{{ newsDettaglio.authorName }}</b>
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="post-divisore">
+  </div>
+  <div class="news-body">
+    <div class="news-body-text">
       <p class="date-category-info">
         {{ newsDettaglio.category }} | {{ newsDettaglio.publicationDate }}
       </p>
-      <p class="news-body-text">{{ newsDettaglio.content }}</p>
-      <p>
-        <b>Tags: </b>
-        <span *ngFor="let t of newsDettaglio.tags">#{{ t }} </span>
-      </p>
+      <p class="long-text">{{ newsDettaglio.content }}</p>
+      <div class="tag-container">
+        <p><b>Tags: </b></p>
+        <app-tag-chip
+          *ngFor="let t of newsDettaglio.tags"
+          [tagLink]="'/'"
+          [tagText]="t"
+        >
+        </app-tag-chip>
+      </div>
     </div>
   </div>
 </div>
