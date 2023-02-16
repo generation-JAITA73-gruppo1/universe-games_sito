@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { FilterAsideComponent } from './filter-aside/filter-aside.component';
 import { TagChipComponent } from './tag-chip/tag-chip.component';
 import { SeeMoreButtonComponent } from './see-more-button/see-more-button.component';
+import { CardRecensioneComponent } from './card-recensione/card-recensione.component';
+import { CardVideogiocoComponent } from './card-videogioco/card-videogioco.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { SeeMoreButtonComponent } from './see-more-button/see-more-button.compon
     FilterAsideComponent,
     TagChipComponent,
     SeeMoreButtonComponent,
+    CardRecensioneComponent,
+    CardVideogiocoComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -22,6 +26,8 @@ import { SeeMoreButtonComponent } from './see-more-button/see-more-button.compon
     FilterAsideComponent,
     TagChipComponent,
     SeeMoreButtonComponent,
+    CardRecensioneComponent,
+    CardVideogiocoComponent,
   ],
 })
 export class SharedModule {}
