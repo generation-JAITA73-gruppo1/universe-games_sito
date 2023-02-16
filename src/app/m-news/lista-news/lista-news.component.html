@@ -4,14 +4,18 @@
     [filterTypes]="filterTypes"
   ></app-filter-aside>
   <div class="main-content">
-    <h1 class="title">Lista News</h1>
-    <h3
-      *ngIf="
-        selectedCategoryFilter !== '' && selectedCategoryFilter !== undefined
-      "
-    >
-      Filtrate per {{ selectedCategoryFilter }}
-    </h3>
+    <!-- <div class="list-head">
+      <h2
+        *ngIf="
+          selectedCategoryFilter !== '' && selectedCategoryFilter !== undefined;
+          else noFilter
+        "
+      >
+        Filtrate per: {{ selectedCategoryFilter }} ({{
+          news.length != 1 ? news.length + " giochi" : news.length + " gioco"
+        }})
+      </h2>
+    </div> -->
     <div class="news-list">
       <div class="news" *ngFor="let n of news">
         <div class="immagine">
@@ -39,3 +43,5 @@
     </div>
   </div>
 </div>
+
+<!-- <ng-template #noFilter><h2>Lista completa</h2></ng-template> -->

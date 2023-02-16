@@ -1,5 +1,5 @@
 .aside-filter {
-  background-color: yellow;
+  background-color: rgb(87, 78, 78);
   background-attachment: fixed;
   width: 0rem;
   position: relative;
@@ -8,21 +8,55 @@
   transition-duration: 0.6s;
 }
 
-.toggle-button {
-  background-color: yellow;
-  border: solid 2px blue;
-  position: absolute;
-  right: -3vw;
-  top: 5rem;
-}
-.aside-shown {
+.aside-filter-shown {
   width: 15rem;
   transition-property: all;
   transition-duration: 0.6s;
 }
 
+.toggle-button {
+  background-color: rgb(61, 58, 58);
+  color: white;
+  border: solid 0.2rem white;
+  opacity: 3;
+  position: absolute;
+  left: 0;
+  top: 5rem;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-property: all;
+  transition-duration: 0.6s;
+}
+
+.toggle-button-shown {
+  left: 15rem;
+  transition-property: all;
+  transition-duration: 0.6s;
+}
+
+.toggle-button:hover {
+  opacity: 1;
+  /* transition-property: all;
+  transition-duration: 0.3s; */
+}
+
+.toggle-button span {
+  margin: 0;
+  transition-property: all;
+  transition-duration: 0.6s;
+}
+
+.spin {
+  transform: rotate(90deg);
+  transition-property: all;
+  transition-duration: 0.6s;
+}
+
 .aside-content {
-  padding: 4rem 2rem;
+  height: 100%;
+  padding-top: 4rem;
   transform: translateX(-15rem);
   transition-property: all;
   transition-duration: 0.5s;
@@ -36,14 +70,42 @@
   transition-duration: 0.5s;
 }
 
-.cell-format {
+.aside-content ul {
   margin: 0;
-  display: block;
-  height: 2rem;
+}
+
+.cell-format {
+  color: white;
+  font-family: Oswald;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 3rem;
+  user-select: none;
   text-overflow: ellipsis;
+  transition-property: all;
+  transition-duration: 0.2s;
 }
 
 .cell-format:active {
-  background-color: red;
-  color: white;
+  background-color: gray;
+  box-shadow: 0em 0rem 0.2rem black inset;
+  text-shadow: 0.1rem 0rem 0.15rem rgba(0, 0, 0, 0.5);
+  transition-property: all;
+  transition-duration: 0.2s;
+}
+
+.cell-format:hover {
+  background-color: gray;
+}
+
+.category-list {
+  display: none;
+}
+
+.shown {
+  display: block;
 }

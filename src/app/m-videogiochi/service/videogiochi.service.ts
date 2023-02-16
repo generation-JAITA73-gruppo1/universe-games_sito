@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Videogioco } from 'src/app/model/videogioco';
 
 @Injectable({
@@ -18,5 +18,18 @@ export class VideogiochiService {
 
   getVideogioco(id: string) {
     return this.http.get<Videogioco>(`${this.apiUrl}/${id}`, {});
+  }
+
+  filterVideogiochiByCategoria(categoria: string): Observable<any> {
+    // console.log(categoria);
+
+    return this.getVideogiochi().pipe(
+      map((fullList) =>
+        fullList.filter(
+          (obj) => obj.category.toLowerCase() == categoria.toLowerCase()
+        )
+      )
+      //   tap((list) => console.log(list))
+    );
   }
 }

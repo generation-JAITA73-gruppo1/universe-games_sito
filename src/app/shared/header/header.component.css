@@ -5,6 +5,7 @@
   color: white;
   position: relative;
   box-shadow: 0rem 0.3rem 0.3rem rgb(0, 0, 0);
+  z-index: 3;
 }
 
 .company-logo {
@@ -13,11 +14,10 @@
   position: absolute;
   top: 0rem;
   left: 2rem;
-  z-index: 3;
 }
 
 .sbinna {
-  transform: rotate3d(2, 1, 1, 720deg);
+  transform: rotate3d(2, 0, 0, 1440deg);
   transition-duration: 1s;
   animation-timing-function: ease-out;
 }
@@ -61,7 +61,7 @@
 
 .navbar-item a:hover {
   background-color: gray;
-  box-shadow: 0.2rem 0rem 0.5rem black inset;
+  box-shadow: 0rem 0rem 0.2rem black inset;
   text-shadow: 0.1rem 0rem 0.15rem rgba(0, 0, 0, 0.5);
   transition-property: all;
   transition-duration: 0.2s;
