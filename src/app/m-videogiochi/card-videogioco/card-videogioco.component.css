@@ -17,12 +17,11 @@
 .descrizione-games {
   box-shadow: 10px 10px 5px gray;
   background-color: white;
-  border: 5px black solid;
 }
 
 .immagine-games {
   box-shadow: 10px 15px 5px gray;
-  border: 5px black solid;
+
   border-bottom: none;
   height: 25rem;
   width: 100%;
@@ -37,4 +36,12 @@
 .immagine-games > img {
   height: 100%;
   object-fit: cover;
+}
+
+.titolo {
+  font-family: "Oswald", sans-serif;
+}
+
+.console {
+  font-family: "Lora", serif;
 }
