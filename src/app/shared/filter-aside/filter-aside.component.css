@@ -26,6 +26,8 @@
   transform: translateX(-15rem);
   transition-property: all;
   transition-duration: 0.5s;
+  white-space: nowrap;
+  text-overflow: clip;
 }
 
 .aside-content-shown {
