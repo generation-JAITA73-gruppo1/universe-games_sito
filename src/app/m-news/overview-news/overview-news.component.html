@@ -11,6 +11,9 @@
     >
       <app-card-news [newsDettaglio]="n"></app-card-news>
     </div>
-    <button routerLink="/lista/news" class="seeMore">Altre notizie</button>
+    <app-see-more-button
+      [link]="'/lista/news'"
+      [text]="'arrow_forward_ios'"
+    ></app-see-more-button>
   </div>
 </div>

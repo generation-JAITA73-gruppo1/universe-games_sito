@@ -16,6 +16,12 @@
   z-index: 3;
 }
 
+.sbinna {
+  transform: rotate3d(2, 1, 1, 720deg);
+  transition-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
 .navbar-list {
   display: flex;
   flex-direction: row;
@@ -55,4 +61,8 @@
 
 .navbar-item a:hover {
   background-color: gray;
+  box-shadow: 0.2rem 0rem 0.5rem black inset;
+  text-shadow: 0.1rem 0rem 0.15rem rgba(0, 0, 0, 0.5);
+  transition-property: all;
+  transition-duration: 0.2s;
 }

@@ -1,5 +1,9 @@
 <div class="header-area">
-  <div class="company-logo">
+  <div
+    class="company-logo"
+    [ngClass]="{ sbinna: isSbinnable }"
+    (click)="isSbinnable = !isSbinnable"
+  >
     <img src="/assets/images/universe-games-logo.png" alt="company-logo" />
   </div>
   <ul class="navbar-list">

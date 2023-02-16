@@ -21,6 +21,7 @@ import { SeeMoreButtonComponent } from './see-more-button/see-more-button.compon
     HeaderComponent,
     FilterAsideComponent,
     TagChipComponent,
+    SeeMoreButtonComponent,
   ],
 })
 export class SharedModule {}
