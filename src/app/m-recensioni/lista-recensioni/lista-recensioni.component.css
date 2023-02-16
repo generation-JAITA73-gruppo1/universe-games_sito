@@ -12,3 +12,7 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.lista-recensioni.component {
+  padding-bottom: 4rem;
+}

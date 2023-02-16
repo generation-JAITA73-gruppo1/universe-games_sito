@@ -26,6 +26,9 @@ export class FilterAsideComponent implements OnInit, OnDestroy {
   //   authorNamesList!: string[];
   //   authorSubscription!: Subscription;
 
+  //proprietà per il toggle nel template
+  showCategoryList: boolean = false;
+
   constructor(
     private categoryservice: CategorieService // private notizieService: NewsService, // private recensioniService: RecensioniService
   ) {}
@@ -49,5 +52,7 @@ export class FilterAsideComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.categorySubscription.unsubscribe;
+
+    this.showCategoryList = false;
   }
 }

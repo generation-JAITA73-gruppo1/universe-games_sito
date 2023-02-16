@@ -22,11 +22,12 @@ export class ListaRecensioniComponent {
 
   sortBy(sortType: string) {
     switch (sortType) {
-      case 'date':
-        // this.reviews$ = this.recensioniService.sortRecensioniByDate$;
+      case '':
+        console.log('trovato date');
+        this.reviews$ = this.recensioniService.getRecensioni();
         break;
       default:
-        this.reviews$ = this.recensioniService.getRecensioni();
+        this.reviews$ = this.recensioniService.sortRecensioniBy(sortType);
         break;
     }
   }

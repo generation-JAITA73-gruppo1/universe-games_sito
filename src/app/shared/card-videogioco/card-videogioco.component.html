@@ -3,12 +3,19 @@
   [routerLink]="'/dettaglio/games/' + gamesDettaglio._id"
   *ngIf="gamesDettaglio !== undefined"
 >
-  <div class="immagine-games">
-    <img [src]="gamesDettaglio.coverImage" />
-  </div>
-  <div class="descrizione-games">
-    <p class="titolo">Titolo: {{ gamesDettaglio.title }}</p>
-    <p class="console">Console: {{ gamesDettaglio.category }}</p>
+  <div class="whole-card">
+    <div class="immagine-games">
+      <img
+        [src]="gamesDettaglio.coverImage"
+        (error)="gamesDettaglio.coverImage = '/assets/images/no-cover.png'"
+      />
+    </div>
+    <div class="descrizione-games">
+      <p class="titolo">
+        <b>{{ gamesDettaglio.title }}</b>
+      </p>
+      <p class="console">{{ gamesDettaglio.category }}</p>
+    </div>
   </div>
 
   <!--- <button [routerLink]="'/dettaglio-games/' + id">dettaglio</button>-->

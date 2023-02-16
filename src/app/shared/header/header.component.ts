@@ -13,9 +13,17 @@ export class HeaderComponent {
 
   sbin() {
     this.isSbinnable = true;
+    this.playDing();
     this.router.navigateByUrl('/');
     setTimeout(() => {
       this.isSbinnable = false;
     }, 1500);
+  }
+
+  playDing() {
+    let audio = new Audio();
+    audio.src = '/assets/sounds/coin_sound.mp3';
+    audio.load();
+    audio.play();
   }
 }
