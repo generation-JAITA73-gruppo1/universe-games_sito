@@ -4,4 +4,7 @@
     *ngFor="let g of games$ | async"
     [gamesDettaglio]="g"
   ></app-card-videogioco>
+  <div class="overlay" [ngClass]="{ 'overlay-show': showOverlay }"></div>
 </div>
+
+<!-- (mousehover)="toggleOverlay()" (mouseout)="toggleOverlay()" -->
