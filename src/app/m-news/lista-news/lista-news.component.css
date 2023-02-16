@@ -16,32 +16,29 @@
 
 .main-content {
   width: 100%;
-  padding: 4rem;
+  padding: 4rem 7rem;
   padding-bottom: 8rem;
 }
 
 .news {
+  background-color: white;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   height: 30rem;
-  /* height: fit-content; */
+  overflow: hidden;
   width: 100%;
   padding-bottom: 5rem;
 }
 .text {
   max-height: 30rem;
   height: 100%;
-  border: 3px black solid;
-  background-color: darkgray;
 }
 .news-body-text {
-  height: 30rem;
+  height: 100%;
   overflow: hidden;
 }
 
-.news > .immagine {
-  border: 3px black solid;
+.immagine {
   height: 100%;
   width: 30rem;
 }
@@ -49,8 +46,8 @@
 .immagine > img {
   object-fit: cover;
   object-position: center;
+  height: 100%;
   width: 100%;
-  height: auto;
 }
 
 .news > .text {
@@ -62,6 +59,22 @@
   background-color: darkgray;
   padding-bottom: 1rem;
   text-align: center;
+}
+
+.publication-detail {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.author-details {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 5rem;
+}
+
+.author-details p {
+  display: block;
 }
 
 .news-body {

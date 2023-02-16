@@ -11,3 +11,25 @@
   /* background-color: white; */
   background-color: rgba(0, 0, 0, 0.775);
 }
+
+.toTopButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  border-radius: 1rem;
+  border: solid 3px;
+  height: 3rem;
+  width: 3rem;
+  line-height: 1rem;
+  opacity: 0.4;
+  color: white;
+  user-select: none;
+  font-variation-settings: "FILL" 0, "wght" 800, "GRAD" 0, "opsz" 48;
+}
+
+.toTopButton:hover {
+  opacity: 1;
+}

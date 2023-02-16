@@ -7,13 +7,13 @@
 
 .head {
   width: 100%;
-  padding: 0 3rem;
+  padding: 0rem 0rem 0rem;
 }
 
 .immagine {
   position: relative;
   width: 100%;
-  height: 25rem;
+  height: 40rem;
   object-fit: contain;
 }
 
@@ -44,6 +44,8 @@
 
 .publication-detail {
   display: flex;
+  padding-left: 4rem;
+  padding-right: 4rem;
   justify-content: space-between;
   width: 100%;
 }
@@ -51,7 +53,6 @@
 .author-details {
   display: flex;
   justify-content: flex-start;
-  padding-left: 5rem;
 }
 
 .author-details p {
@@ -69,7 +70,7 @@
   height: 100%;
   text-align: left;
   background-color: white;
-  padding: 3rem 5rem;
+  padding: 3rem 7rem;
 }
 
 .tag-container {

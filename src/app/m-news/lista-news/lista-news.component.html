@@ -17,13 +17,17 @@
       </h2>
     </div>
     <div class="news-list">
-      <div class="news" *ngFor="let n of news">
+      <div
+        class="news"
+        *ngFor="let n of news"
+        [routerLink]="'/dettaglio/news/' + n._id"
+      >
         <div class="immagine">
           <img [src]="n.imageUrl" [title]="n.imageUrl" [alt]="n.imageUrl" />
         </div>
         <div class="text">
           <div class="news-title">
-            <h3>{{ n.title }} - {{ n.authorName }}</h3>
+            <h2>{{ n.title }}</h2>
           </div>
           <div class="news-body">
             <p class="date-category-info">
@@ -32,9 +36,16 @@
             <div class="news-body-text">
               <p>{{ n.content }}</p>
             </div>
-            <div class="tags">
-              <b>Tags: </b>
-              <div *ngFor="let t of n.tags">#{{ t }}</div>
+            <div class="tag-container">
+              <p>
+                <b>Tags: </b
+                ><app-tag-chip
+                  *ngFor="let t of n.tags"
+                  [tagLink]="'/'"
+                  [tagText]="t"
+                >
+                </app-tag-chip>
+              </p>
             </div>
           </div>
         </div>
