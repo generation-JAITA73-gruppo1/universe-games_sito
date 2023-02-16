@@ -28,24 +28,26 @@
         <div class="text">
           <div class="news-title">
             <h2>{{ n.title }}</h2>
+            <div class="publication-info">
+              <h4>{{ n.category }}</h4>
+              {{ n.publicationDate | date : "dd/MM/yyyy" }}
+              <p></p>
+            </div>
           </div>
           <div class="news-body">
-            <p class="date-category-info">
-              {{ n.category }} | {{ n.publicationDate }}
-            </p>
             <div class="news-body-text">
               <p>{{ n.content }}</p>
             </div>
             <div class="tag-container">
               <p>
-                <b>Tags: </b
-                ><app-tag-chip
-                  *ngFor="let t of n.tags"
-                  [tagLink]="'/'"
-                  [tagText]="t"
-                >
-                </app-tag-chip>
+                <b>Tags: </b>
               </p>
+              <app-tag-chip
+                *ngFor="let t of n.tags"
+                [tagLink]="'/'"
+                [tagText]="t"
+              >
+              </app-tag-chip>
             </div>
           </div>
         </div>

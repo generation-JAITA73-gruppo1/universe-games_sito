@@ -13,8 +13,13 @@
 .immagine {
   position: relative;
   width: 100%;
-  height: 40rem;
-  object-fit: contain;
+  height: 50vh;
+}
+
+.immagine img {
+  object-fit: cover;
+  width: 100%;
+  object-position: center;
 }
 
 .title {
@@ -26,7 +31,7 @@
   left: 0;
   width: 100%;
   color: white;
-  background-color: #40404099;
+  background-color: #404040d0;
   padding: 1.2rem;
   display: flex;
   flex-direction: column;

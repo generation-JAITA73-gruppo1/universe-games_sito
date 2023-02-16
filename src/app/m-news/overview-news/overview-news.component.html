@@ -7,7 +7,7 @@
   <div routerLink="/dettaglio/news" class="lista-news-secondarie">
     <div
       class="card-container"
-      *ngFor="let n of news.slice(1, 11); let i = index"
+      *ngFor="let n of news.slice(1, 6); let i = index"
     >
       <app-card-news [newsDettaglio]="n"></app-card-news>
     </div>
