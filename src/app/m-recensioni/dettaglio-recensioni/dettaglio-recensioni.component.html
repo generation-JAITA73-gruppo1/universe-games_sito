@@ -1,33 +1,40 @@
 <div
-  class="dettaglioNews"
+  class="dettaglio-review"
   *ngIf="reviewDettaglio != undefined; else noDettaglio"
 >
   <table class="dettaglio-intera-recensione">
     <td class="contenuto-review">
-      <div>                  
-            <h2>Titolo: {{ reviewDettaglio.title }} </h2>
-            <h4>Data: {{ reviewDettaglio.publicationDate }}</h4>           
-            <div  class="autore">
-            <h3>Autore: {{ reviewDettaglio.reviewerName }}</h3> 
-            </div>        
-        <p>{{ reviewDettaglio.content }}</p>        
-    </div>
-    </td >
+  <div class="head">
+    <div class="title">
+        <h3>{{ reviewDettaglio.title }}</h3>
+        <div class="author-details">
+          <p>
+            by <b>{{ reviewDettaglio.reviewerName }}</b>
+          </p>    
+        </div> 
+        <div class="date">
+           <p>
+            {{ reviewDettaglio.publicationDate }}
+          </p>   
+        </div>       
+      </div>
+  </div>       
+      <div class="div-testo">      
+         <p class="testo long-text">{{ reviewDettaglio.content }}</p> 
+      </div>
+      </td >
     <td class="contenuto-gioco-related">
          <app-card-videogioco [gamesDettaglio]="relatedGame"/>
     </td>
+ 
   </table>
-
-
-<div class="parte-immagini">
+  <div class="parte-immagini">
      <div class="array-img">
          <div class="immagine" *ngFor="let i of reviewDettaglio.imageUrls">
          <img [src]="i"/>
          </div>
     </div>
 </div>
-   
-
 </div>
 
 
