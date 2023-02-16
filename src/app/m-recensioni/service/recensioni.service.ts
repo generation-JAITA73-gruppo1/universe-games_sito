@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { map, Observable, Subject, tap } from 'rxjs';
 import { Recensione } from 'src/app/model/recensione';
 
 @Injectable({
@@ -21,5 +21,19 @@ export class RecensioniService {
   }
   getRecensione(id: string) {
     return this.http.get<Recensione>(`${this.apiUrl}/${id}`, {});
+  }
+
+  getRecensioniByGameId(videogiocoId: string): Observable<any> {
+    console.log(videogiocoId);
+
+    return this.getRecensioni().pipe(
+      map((fullList) =>
+        fullList.filter(
+          (obj) =>
+            obj.reviewedGame.id.toLowerCase() == videogiocoId.toLowerCase()
+        )
+      ),
+      tap((list) => console.log(list))
+    );
   }
 }
