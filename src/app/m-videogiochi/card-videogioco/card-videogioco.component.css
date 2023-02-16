@@ -16,14 +16,12 @@
 }
 
 .descrizione-games {
-  box-shadow: 10px 10px 5px gray;
   background-color: white;
-  border: 5px black solid;
+  box-shadow: 10px 10px 10px 5px black;
 }
 
 .immagine-games {
-  box-shadow: 10px 15px 5px gray;
-  border: 5px black solid;
+  box-shadow: 10px 10px 10px 5px black;
   border-bottom: none;
   height: 25rem;
   width: 100%;
