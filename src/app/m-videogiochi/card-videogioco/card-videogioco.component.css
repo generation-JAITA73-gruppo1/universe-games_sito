@@ -12,16 +12,16 @@
 
 .card-games:hover {
   transform: scale(1.05);
+  z-index: 3;
 }
 
 .descrizione-games {
-  box-shadow: 10px 10px 5px gray;
   background-color: white;
+  box-shadow: 10px 10px 10px 5px black;
 }
 
 .immagine-games {
-  box-shadow: 10px 15px 5px gray;
-
+  box-shadow: 10px 10px 10px 5px black;
   border-bottom: none;
   height: 25rem;
   width: 100%;

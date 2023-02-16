@@ -37,3 +37,8 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.long-text {
+  line-height: 2rem;
+  text-align: justify;
+}
