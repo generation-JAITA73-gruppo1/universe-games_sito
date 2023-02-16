@@ -1,16 +1,15 @@
 .dettaglio-games {
-  padding: 10rem;
-  padding-left: 15rem;
+  padding: 5rem 10rem;
 }
 
 .dettaglio-intero-gioco {
   background-color: white;
-  border: solid 4px black;
+  max-height: 40rem;
   width: 100%;
-  padding: 0rem 4rem;
+  display: flex;
+  justify-content: center;
 }
 
-ul,
 li {
   text-transform: uppercase;
   display: inline;
@@ -18,30 +17,24 @@ li {
 
 .tr-contenitore-reviews {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 5rem;
   flex-wrap: nowrap;
   overflow-x: auto;
   height: fit-content;
   width: 100%;
-  padding: 1.5rem 2rem;
-}
-
-.td-immagine {
-  border: solid 4px green;
-  height: 100%;
-  width: 25rem;
+  padding: 4rem 2rem;
 }
 
 .immagine-src {
-  width: 20rem;
+  width: 100%;
+  object-fit: contain;
 }
 
 .contenuto-gioco {
   background-color: white;
   height: 30rem;
-  border: solid 4px black;
   padding-top: 1rem;
   padding-left: 5rem;
   padding-right: 5rem;
@@ -50,6 +43,7 @@ li {
 .review-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
 }
 
 .related-reviews {
