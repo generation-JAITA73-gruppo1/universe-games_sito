@@ -2,7 +2,7 @@
   display: flex;
   width: 20rem;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 1rem;
   flex-direction: column;
   padding: 1.2rem;
@@ -15,22 +15,32 @@
   z-index: 3;
 }
 
+.whole-card {
+  width: 100%;
+  padding: none;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  box-shadow: 0.2rem 0.2rem 0.3rem black;
+}
+
 .descrizione-games {
-  background-color: white;
-  box-shadow: 10px 10px 10px 5px black;
+  width: 100%;
+  background-color: rgba(146, 145, 145, 0.229);
+  color: white;
 }
 
 .immagine-games {
-  box-shadow: 10px 10px 10px 5px black;
   border-bottom: none;
   height: 25rem;
   width: 100%;
 }
 
-.descrizione-review {
-  padding: 1.2rem;
-  width: 50rem;
-  height: 20rem;
+.descrizione-games > p {
+  margin: 0;
+}
+.descrizione-games {
+  padding: 1.5rem 1rem;
+  height: 100%;
 }
 
 .immagine-games > img {
@@ -38,10 +48,14 @@
   object-fit: cover;
 }
 
-.titolo {
+.descrizione-games > p.titolo {
   font-family: "Oswald", sans-serif;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.2rem;
 }
 
-.console {
-  font-family: "Lora", serif;
+.descrizione-games > p.console {
+  font-family: "Oswald", serif;
 }

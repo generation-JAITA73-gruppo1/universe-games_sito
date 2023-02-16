@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { filter, Observable, Subject, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Selezione } from 'src/app/model/filterSelection';
 import { Notizia } from 'src/app/model/notizia';
 import { NewsService } from '../service/news.service';
@@ -35,16 +35,19 @@ export class ListaNewsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.newsService.getNews().subscribe((list) => (this.news = list));
-    // this.newsUpdate.subscribe((list) => (this.news = list));
   }
 
   filterListByCategoria(selectedCategory: string) {
-    this.filterSubscription = this.newsService
-      .filterNewsByCategoria(selectedCategory)
-      .subscribe((list) => {
-        this.news = list;
-        this.selectedCategoryFilter = selectedCategory;
-      });
+    if (selectedCategory === '') {
+      this.newsService.getNews().subscribe((list) => (this.news = list));
+    } else {
+      this.filterSubscription = this.newsService
+        .filterNewsByCategoria(selectedCategory)
+        .subscribe((list) => {
+          this.news = list;
+          this.selectedCategoryFilter = selectedCategory;
+        });
+    }
   }
 
   ngOnDestroy(): void {

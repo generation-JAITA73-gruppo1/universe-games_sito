@@ -1,10 +1,31 @@
-<h1 class="title">Lista Giochi</h1>
-<div class="lista-games">
-  <app-card-videogioco
-    *ngFor="let g of games$ | async"
-    [gamesDettaglio]="g"
-  ></app-card-videogioco>
-  <div class="overlay" [ngClass]="{ 'overlay-show': showOverlay }"></div>
+<div class="lista-videogiochi-component">
+  <app-filter-aside
+    (selectedFilter)="filterListByCategoria($event)"
+    [filterTypes]="filterTypes"
+  ></app-filter-aside>
+  <div class="main-content">
+    <div class="list-head">
+      <h2
+        *ngIf="
+          selectedCategoryFilter !== '' && selectedCategoryFilter !== undefined;
+          else noFilter
+        "
+      >
+        Filtrati per
+        {{ selectedCategoryFilter }}
+        ({{
+          games.length != 1
+            ? games.length + " giochi"
+            : games.length + " gioco"
+        }})
+      </h2>
+    </div>
+    <div class="lista-games">
+      <div class="grid-cell" *ngFor="let g of games">
+        <app-card-videogioco [gamesDettaglio]="g"></app-card-videogioco>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- (mousehover)="toggleOverlay()" (mouseout)="toggleOverlay()" -->
+<ng-template #noFilter><h2>Lista completa</h2></ng-template>

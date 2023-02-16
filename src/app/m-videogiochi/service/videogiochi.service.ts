@@ -19,4 +19,17 @@ export class VideogiochiService {
   getVideogioco(id: string) {
     return this.http.get<Videogioco>(`${this.apiUrl}/${id}`, {});
   }
+
+  filterVideogiochiByCategoria(categoria: string): Observable<any> {
+    // console.log(categoria);
+
+    return this.getVideogiochi().pipe(
+      map((fullList) =>
+        fullList.filter(
+          (obj) => obj.category.toLowerCase() == categoria.toLowerCase()
+        )
+      )
+      //   tap((list) => console.log(list))
+    );
+  }
 }
