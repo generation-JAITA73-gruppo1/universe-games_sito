@@ -34,6 +34,7 @@ export class ListaVideogiochiComponent implements OnInit, OnDestroy {
       this.videogiochiService
         .getVideogiochi()
         .subscribe((list) => (this.games = list));
+      this.selectedCategoryFilter = selectedCategory;
     } else {
       this.filterSubscription = this.videogiochiService
         .filterVideogiochiByCategoria(selectedCategory)
