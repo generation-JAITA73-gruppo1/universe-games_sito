@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   isSbinnable = false;
+
+  //   sbin() {
+  //     this.isSbinnable = true;
+  //     setTimeout((this.isSbinnable = false), 1000);
+  //   }
 }
