@@ -1,4 +1,7 @@
 <h1 class="title">Lista Recensioni</h1>
+<div class="sortbar">
+  <app-sortbar (sortType)="sortBy($event)"></app-sortbar>
+</div>
 <div class="lista-reviews">
   <app-card-recensione
     *ngFor="let r of reviews$ | async"
