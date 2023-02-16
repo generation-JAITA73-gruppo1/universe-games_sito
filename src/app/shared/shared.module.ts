@@ -8,6 +8,7 @@ import { TagChipComponent } from './tag-chip/tag-chip.component';
 import { SeeMoreButtonComponent } from './see-more-button/see-more-button.component';
 import { CardRecensioneComponent } from './card-recensione/card-recensione.component';
 import { CardVideogiocoComponent } from './card-videogioco/card-videogioco.component';
+import { SortbarComponent } from './sortbar/sortbar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CardVideogiocoComponent } from './card-videogioco/card-videogioco.compo
     SeeMoreButtonComponent,
     CardRecensioneComponent,
     CardVideogiocoComponent,
+    SortbarComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -28,6 +30,7 @@ import { CardVideogiocoComponent } from './card-videogioco/card-videogioco.compo
     SeeMoreButtonComponent,
     CardRecensioneComponent,
     CardVideogiocoComponent,
+    SortbarComponent,
   ],
 })
 export class SharedModule {}
