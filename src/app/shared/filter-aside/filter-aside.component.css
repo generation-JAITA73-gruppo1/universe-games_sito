@@ -51,7 +51,7 @@
 }
 
 .spin {
-  transform: rotate(180deg);
+  transform: rotate(90deg);
   transition-property: all;
   transition-duration: 0.6s;
 }
