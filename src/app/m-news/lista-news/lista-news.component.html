@@ -1,27 +1,47 @@
-<div class="lista-news">
-  <h1 class="title">Lista News</h1>
-  <div class="">
-    <div class="news" *ngFor="let n of news$ | async">
-      <div class="immagine">
-        <img [src]="n.imageUrl" />
-        <p class="img-url">{{ n.imageUrl }}</p>
-      </div>
-
-      <div class="text">
-        <div class="divisore">
-          <h3>{{ n.title }} - {{ n.authorName }}</h3>
+<div class="lista-news-component">
+  <app-filter-aside
+    (selectedFilter)="filterListByCategoria($event)"
+    [filterTypes]="filterTypes"
+  ></app-filter-aside>
+  <div class="main-content">
+    <!-- <div class="list-head">
+      <h2
+        *ngIf="
+          selectedCategoryFilter !== '' && selectedCategoryFilter !== undefined;
+          else noFilter
+        "
+      >
+        Filtrate per: {{ selectedCategoryFilter }} ({{
+          news.length != 1 ? news.length + " giochi" : news.length + " gioco"
+        }})
+      </h2>
+    </div> -->
+    <div class="news-list">
+      <div class="news" *ngFor="let n of news">
+        <div class="immagine">
+          <img [src]="n.imageUrl" [title]="n.imageUrl" [alt]="n.imageUrl" />
         </div>
-        <div class="post-divisore">
-          <p class="date-category-info">
-            {{ n.category }} | {{ n.publicationDate }}
-          </p>
-          <p class="news-body-text">{{ n.content }}</p>
-          <p>
-            <b>Tags: </b>
-            <span *ngFor="let t of n.tags">#{{ t }} </span>
-          </p>
+        <div class="text">
+          <div class="news-title">
+            <h3>{{ n.title }} - {{ n.authorName }}</h3>
+          </div>
+          <div class="news-body">
+            <p class="date-category-info">
+              {{ n.category }} | {{ n.publicationDate }}
+            </p>
+            <div class="news-body-text">
+              <p>{{ n.content }}</p>
+            </div>
+            <div class="tags">
+              <b>Tags: </b>
+              <div *ngFor="let t of n.tags">#{{ t }}</div>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- fine contenitore news singola -->
     </div>
   </div>
 </div>
+
+<!-- <ng-template #noFilter><h2>Lista completa</h2></ng-template> -->

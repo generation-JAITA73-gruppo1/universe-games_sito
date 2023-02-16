@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { News } from 'src/app/model/notizia';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Selezione } from 'src/app/model/filterSelection';
+import { Notizia } from 'src/app/model/notizia';
 import { NewsService } from '../service/news.service';
 
 @Component({
@@ -8,9 +10,17 @@ import { NewsService } from '../service/news.service';
   templateUrl: './lista-news.component.html',
   styleUrls: ['./lista-news.component.css'],
 })
-export class ListaNewsComponent {
-  news$!: Observable<News[]>;
-
+export class ListaNewsComponent implements OnInit, OnDestroy {
+  news!: Notizia[];
+  filterSubscription!: Subscription;
+  filterTypes: Selezione = {
+    categories: true,
+    newsAuthorName: true,
+    reviewAuthorName: false,
+    tag: true,
+    game_id: false,
+  };
+  selectedCategoryFilter: string = '';
   /*
   STO TRATTANDO LISTA-NEWS COME FOSSE DETTAGLIO PER TESTARE VISUALIZZAZIONE,
   COLLEGAMENTO COMING SOON
@@ -18,9 +28,32 @@ export class ListaNewsComponent {
   CHE GLI METTEREMO IN VISUALIZZAZIONE(SUL NUMERO DI QUANTE SE NE VEDONO)
   */
 
-  constructor(private newsService: NewsService) {}
+  constructor(
+    private newsService: NewsService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.news$ = this.newsService.getNews();
+    this.newsService.getNews().subscribe((list) => (this.news = list));
+  }
+
+  filterListByCategoria(selectedCategory: string) {
+    if (selectedCategory === '') {
+      this.newsService.getNews().subscribe((list) => (this.news = list));
+    } else {
+      this.filterSubscription = this.newsService
+        .filterNewsByCategoria(selectedCategory)
+        .subscribe((list) => {
+          this.news = list;
+          this.selectedCategoryFilter = selectedCategory;
+        });
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.filterSubscription != undefined) {
+      this.filterSubscription.unsubscribe();
+    }
+    this.selectedCategoryFilter !== '';
   }
 }

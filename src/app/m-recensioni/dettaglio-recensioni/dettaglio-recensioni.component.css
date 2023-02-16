@@ -1,0 +1,99 @@
+.contenuto-review {
+  vertical-align: top;
+  width: 100%;
+  background-color: white;
+}
+
+.dettaglio-review {
+  padding: 10rem;
+}
+
+.testo {
+  padding: 3rem;
+}
+
+.autore {
+  display: flex;
+  justify-content: right;
+}
+
+.dettaglio-intera-recensione {
+  background-color: white;
+}
+
+.parte-immagini {
+  padding: 2rem 7rem;
+  background-color: white;
+}
+
+.array-img {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  height: fit-content;
+  width: 100%;
+  padding: 1.5rem 2rem;
+}
+.immagine > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.immagine:hover {
+  transform: scale(1.15);
+  z-index: 3;
+}
+
+.immagine {
+  transition: transform 0.2s;
+  width: 20rem;
+  /* height: 10rem; */
+  aspect-ratio: 5/3;
+  flex-shrink: 0;
+}
+
+.title {
+  padding: 1rem;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  background-color: #40404099;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.title > h3 {
+  margin: 0;
+  font-size: 3rem;
+  text-overflow: ellipsis;
+  text-align: left;
+  width: fit-content;
+  padding-left: 2rem;
+}
+
+.author-details {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 2rem;
+}
+
+.author-details p {
+  display: block;
+}
+
+.date {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 2rem;
+}
+
+.date p {
+  display: block;
+}

@@ -1,1 +1,47 @@
-dettaglio news
+<div class="dettaglioNews" *ngIf="newsDettaglio != undefined; else noDettaglio">
+  <div class="head">
+    <div class="immagine">
+      <img [src]="newsDettaglio.imageUrl" />
+      <!-- <p class="img-url">{{ newsDettaglio.imageUrl }}</p>-->
+      <div class="title">
+        <h3>{{ newsDettaglio.title }}</h3>
+        <div class="publication-detail">
+          <div class="author-details">
+            <p>
+              by <b>{{ newsDettaglio.authorName }}</b>
+            </p>
+          </div>
+          <div class="date-category-info">
+            <p>
+              {{ newsDettaglio.category }} |
+              <b>{{ newsDettaglio.publicationDate }}</b>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="news-body">
+    <div class="news-body-text">
+      <p class="long-text">{{ newsDettaglio.content }}</p>
+      <div class="tag-container">
+        <p><b>Tags: </b></p>
+        <app-tag-chip
+          *ngFor="let t of newsDettaglio.tags"
+          [tagLink]="'/'"
+          [tagText]="t"
+        >
+        </app-tag-chip>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noDettaglio>
+  <div class="dettaglioNews">
+    <p>
+      Nessuna notizia esistente a questo id.<br />
+      <button routerLink="/">Torna alla Home</button>
+    </p>
+  </div>
+</ng-template>

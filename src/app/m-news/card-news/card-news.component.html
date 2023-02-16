@@ -1,11 +1,23 @@
-<div class="card-news" [routerLink]="['/', 'dettaglio-news', id]">
+<div
+  class="card-news"
+  [routerLink]="'/dettaglio/news/' + newsDettaglio._id"
+  *ngIf="newsDettaglio !== undefined"
+  [style]="'background-image: url(' + newsDettaglio.imageUrl + ')'"
+>
   <div class="descrizione-news">
-    <h2>{{ title }}</h2>
-    <small>{{ category }} - data: {{ publicationDate }}</small>
-    <p>Tags: {{ tags }}</p>
+    <h2>{{ newsDettaglio.title }}</h2>
+    <small
+      >{{ newsDettaglio.authorName }} -
+      {{ newsDettaglio.publicationDate | date : "dd/MM/yyyy" }}</small
+    >
+    <div class="tags-list">
+      <app-tag-chip
+        *ngFor="let t of newsDettaglio.tags.slice(0, 3)"
+        [tagText]="t"
+      ></app-tag-chip>
+    </div>
   </div>
-  <div class="immagine-news">
-    <img [src]="imageUrl" />
-  </div>
-  <button [routerLink]="'/dettaglio-news/' + id">dettaglio</button>
+  <!--<button [routerLink]="'/dettaglio/news/' + newsDettaglio._id">
+    dettaglio
+  </button> -->
 </div>

@@ -1,11 +1,36 @@
-<ul class="navbar-list">
-  <li>
-    <a routerLink="/">Homepage</a>
-  </li>
-  <li>
-    <a routerLink="/lista/games">Giochi</a>
-  </li>
-  <li>
-    <a routerLink="/lista/reviews">Recensioni</a>
-  </li>
-</ul>
+<div class="header-area">
+  <div
+    class="company-logo"
+    [ngClass]="{ sbinna: isSbinnable }"
+    (click)="sbin()"
+    routerLink="/"
+  >
+    <img src="/assets/images/universe-games-logo.png" alt="company-logo" />
+  </div>
+  <ul class="navbar-list">
+    <li class="navbar-item">
+      <a routerLink="/">
+        <span class="material-symbols-outlined"> home </span>
+        <h4>HOMEPAGE</h4></a
+      >
+    </li>
+    <li class="navbar-item">
+      <a routerLink="/lista/news">
+        <span class="material-symbols-outlined"> new_releases </span>
+        <h4>ARCHIVIO NOTIZIE</h4>
+      </a>
+    </li>
+    <li class="navbar-item">
+      <a routerLink="/lista/games">
+        <span class="material-symbols-outlined"> videogame_asset </span>
+        <h4>GIOCHI</h4></a
+      >
+    </li>
+    <li class="navbar-item">
+      <a routerLink="/lista/reviews">
+        <span class="material-symbols-outlined"> rate_review </span>
+        <h4>RECENSIONI</h4></a
+      >
+    </li>
+  </ul>
+</div>

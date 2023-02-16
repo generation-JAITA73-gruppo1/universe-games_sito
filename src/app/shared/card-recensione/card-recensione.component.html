@@ -1,0 +1,18 @@
+<div
+  class="card-review"
+  [routerLink]="'/dettaglio/reviews/' + reviewDettaglio._id"
+  *ngIf="reviewDettaglio !== undefined"
+>
+  <div class="contenuti-review">
+    <div class="immagini-review">
+      <img class="immagine-singola" [src]="reviewDettaglio.imageUrls[0]" />
+    </div>
+    <div class="descrizione-review">
+      <h2>{{ reviewDettaglio.title }}</h2>
+      <h3>{{ reviewDettaglio.score }}/10</h3>
+      <p class="contenuto-preview">{{ reviewDettaglio.content }}</p>
+    </div>
+  </div>
+
+  <!--- <button [routerLink]="'/dettaglio-games/' + id">dettaglio</button>-->
+</div>
