@@ -5,12 +5,15 @@
 
 .contenuti-review {
   width: 100%;
+  min-width: 35rem;
   height: 15rem;
   position: relative;
   background-color: white;
   display: flex;
   transition: transform 0.2s;
   box-shadow: 0.2rem 0.2rem 0.2rem black;
+  overflow: hidden;
+  border-radius: 0.25rem;
 }
 
 .descrizione-review {
@@ -47,7 +50,7 @@
 }
 
 .contenuti-review:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
 
 .contenuto-preview {

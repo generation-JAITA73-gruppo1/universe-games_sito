@@ -31,6 +31,8 @@
   width: 100%;
   box-shadow: 0.2rem 0.2rem 0.2rem black;
   transition: transform 0.3s;
+  overflow: hidden;
+  border-radius: 0.25rem;
 }
 
 .news:hover {

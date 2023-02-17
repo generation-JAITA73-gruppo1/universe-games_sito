@@ -14,6 +14,7 @@
   width: fit-content;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  border-radius: 0.25rem;
 }
 
 li {
@@ -34,14 +35,14 @@ li {
 }
 
 .immagine {
-  max-width: 50%;
-  max-height: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .immagine > img {
+  max-width: 50%;
   height: 100%;
   object-fit: contain;
 }
