@@ -12,7 +12,9 @@
         "
       >
         Filtrate per: {{ selectedCategoryFilter }} ({{
-          news.length != 1 ? news.length + " giochi" : news.length + " gioco"
+          news.length != 1
+            ? news.length + " notizie"
+            : news.length + " notizia"
         }})
       </h2>
     </div>
