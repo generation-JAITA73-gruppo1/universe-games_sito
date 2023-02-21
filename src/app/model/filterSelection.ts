@@ -3,5 +3,5 @@ export interface Selezione {
   newsAuthorName: boolean;
   reviewAuthorName: boolean;
   tag: boolean;
-  game_id: boolean;
+  gameid: boolean;
 }

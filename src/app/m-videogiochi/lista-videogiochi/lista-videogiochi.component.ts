@@ -17,7 +17,7 @@ export class ListaVideogiochiComponent implements OnInit, OnDestroy {
     newsAuthorName: false,
     reviewAuthorName: false,
     tag: false,
-    game_id: false,
+    gameid: false,
   };
   selectedCategoryFilter: string = '';
 

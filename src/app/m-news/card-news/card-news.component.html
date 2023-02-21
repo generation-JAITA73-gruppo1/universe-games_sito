@@ -1,6 +1,6 @@
 <div
   class="card-news"
-  [routerLink]="'/dettaglio/news/' + newsDettaglio._id"
+  [routerLink]="'/dettaglio/news/' + newsDettaglio.id"
   *ngIf="newsDettaglio !== undefined"
   [style]="'background-image: url(' + newsDettaglio.imageUrl + ')'"
 >
@@ -17,7 +17,7 @@
       ></app-tag-chip>
     </div>
   </div>
-  <!--<button [routerLink]="'/dettaglio/news/' + newsDettaglio._id">
+  <!--<button [routerLink]="'/dettaglio/news/' + newsDettaglio.id">
     dettaglio
   </button> -->
 </div>

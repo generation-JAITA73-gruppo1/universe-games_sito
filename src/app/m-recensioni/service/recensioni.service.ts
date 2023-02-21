@@ -7,8 +7,7 @@ import { Recensione } from 'src/app/model/recensione';
   providedIn: 'root',
 })
 export class RecensioniService {
-  private apiUrl =
-    'https://project-works-rest-api.onrender.com/api/v1/GROUP-I/review';
+  private apiUrl = 'http://localhost:3000/review';
 
   constructor(private http: HttpClient) {}
 
@@ -67,5 +66,4 @@ export class RecensioniService {
   //   private getTimo(date?: Date): any {
   //     return date != null ? date.getTime() : 0;
   //   }
-
 }

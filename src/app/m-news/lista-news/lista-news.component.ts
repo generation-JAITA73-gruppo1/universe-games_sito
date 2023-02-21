@@ -18,7 +18,7 @@ export class ListaNewsComponent implements OnInit, OnDestroy {
     newsAuthorName: true,
     reviewAuthorName: false,
     tag: true,
-    game_id: false,
+    gameid: false,
   };
   selectedCategoryFilter: string = '';
   /*
