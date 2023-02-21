@@ -2,68 +2,83 @@
   class="dettaglio-games"
   *ngIf="gamesDettaglio != undefined; else noDettaglio"
 >
-  <table class="dettaglio-intero-gioco">
-    <tr>
-      <td class="td-immagine">
-        <div class="immagine">
-          <img class="immagine-src" [src]="gamesDettaglio.coverImage" />
-          <!--<p class="img-url">{{ gamesDettaglio.coverImage }}</p>-->
-        </div>
-      </td>
-      <td>
-        <div class="contenuto-gioco">
-          <p>Console: {{ gamesDettaglio.category }}</p>
-          <p>Data di rilascio: {{ gamesDettaglio.releaseDate }}</p>
-          <p>Genere: {{ gamesDettaglio.genre }}</p>
-          <p>Sfotware House: {{ gamesDettaglio.softwareHouse }}</p>
-          <p>Publisher: {{ gamesDettaglio.publisher }}</p>
-          <p>Numero di giocatori: {{ gamesDettaglio.numberOfPlayers }}</p>
-
-          <table class="tabella-lingue" style="width: 100%">
-            <tr>
-              <td
-                *ngIf="
-                  gamesDettaglio.languages.voice[0] != undefined ||
-                  gamesDettaglio.languages.voice.length > 0
-                "
-              >
-                <b>Lingue Doppiate: </b>
-                <div>
-                  <ul>
-                    <li *ngFor="let v of gamesDettaglio.languages.voice">
-                      [{{ v }}]
-                    </li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-            <br />
-
-            <tr>
-              <td>
-                <b>Lingue Sottotitolate: </b>
-                <div>
-                  <ul>
-                    <li *ngFor="let t of gamesDettaglio.languages.text">
-                      [{{ t }}]
-                    </li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </td>
-    </tr>
-    <tr class="tr-contenitore-reviews" *ngIf="relatedReview !== undefined">
-      RECENSIONI
+  <div class="dettaglio-intero-gioco">
+    <div class="immagine">
+      <img class="immagine-src" [src]="gamesDettaglio.coverImage" />
+      <!--<p class="img-url">{{ gamesDettaglio.coverImage }}</p>-->
+    </div>
+    <div class="contenuto-gioco">
+      <table>
+        <tr>
+          <td><b>Console: </b></td>
+          <td>{{ gamesDettaglio.category }}</td>
+        </tr>
+        <tr>
+          <td>Data di uscita:</td>
+          <td>{{ gamesDettaglio.releaseDate | date : "dd/MM/yyyy" }}</td>
+        </tr>
+        <tr>
+          <td><b>Genere: </b></td>
+          <td>{{ gamesDettaglio.genre }}</td>
+        </tr>
+        <tr>
+          <td><b>Software House: </b></td>
+          <td>{{ gamesDettaglio.publisher }}</td>
+        </tr>
+        <tr>
+          <td><b>N. giocatori: </b></td>
+          <td>{{ gamesDettaglio.numberOfPlayers }}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <table class="tabella-lingue" style="width: 100%">
+        <tr>
+          <td
+            *ngIf="
+              gamesDettaglio.languages.voice[0] != undefined ||
+              gamesDettaglio.languages.voice.length > 0
+            "
+          >
+            <b>Lingue Doppiate: </b>
+            <div>
+              <ul>
+                <li *ngFor="let v of gamesDettaglio.languages.voice">
+                  <!-- [{{ v }}] -->
+                  <app-tag-chip [tagText]="v"></app-tag-chip>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <br />
+        <tr>
+          <td>
+            <b>Lingue Sottotitolate: </b>
+            <div>
+              <ul>
+                <li *ngFor="let t of gamesDettaglio.languages.text">
+                  <!-- [{{ t }}] -->
+                  <app-tag-chip [tagText]="t"></app-tag-chip>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="tr-contenitore-reviews" *ngIf="relatedReview !== undefined">
+    <div class="review-grid">
       <div class="related-reviews" *ngFor="let r of relatedReview">
         <div class="card-recensione">
           <app-card-recensione [reviewDettaglio]="r"></app-card-recensione>
         </div>
       </div>
-    </tr>
-  </table>
+    </div>
+  </div>
 </div>
 
 <ng-template #noDettaglio>

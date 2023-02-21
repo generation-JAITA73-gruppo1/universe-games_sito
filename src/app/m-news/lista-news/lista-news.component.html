@@ -4,7 +4,7 @@
     [filterTypes]="filterTypes"
   ></app-filter-aside>
   <div class="main-content">
-    <!-- <div class="list-head">
+    <div class="list-head">
       <h2
         *ngIf="
           selectedCategoryFilter !== '' && selectedCategoryFilter !== undefined;
@@ -12,29 +12,44 @@
         "
       >
         Filtrate per: {{ selectedCategoryFilter }} ({{
-          news.length != 1 ? news.length + " giochi" : news.length + " gioco"
+          news.length != 1
+            ? news.length + " notizie"
+            : news.length + " notizia"
         }})
       </h2>
-    </div> -->
+    </div>
     <div class="news-list">
-      <div class="news" *ngFor="let n of news">
+      <div
+        class="news"
+        *ngFor="let n of news"
+        [routerLink]="'/dettaglio/news/' + n._id"
+      >
         <div class="immagine">
           <img [src]="n.imageUrl" [title]="n.imageUrl" [alt]="n.imageUrl" />
         </div>
         <div class="text">
           <div class="news-title">
-            <h3>{{ n.title }} - {{ n.authorName }}</h3>
+            <h2>{{ n.title }}</h2>
+            <div class="publication-info">
+              <h4>{{ n.category }}</h4>
+              {{ n.publicationDate | date : "dd/MM/yyyy" }}
+              <p></p>
+            </div>
           </div>
           <div class="news-body">
-            <p class="date-category-info">
-              {{ n.category }} | {{ n.publicationDate }}
-            </p>
             <div class="news-body-text">
               <p>{{ n.content }}</p>
             </div>
-            <div class="tags">
-              <b>Tags: </b>
-              <div *ngFor="let t of n.tags">#{{ t }}</div>
+            <div class="tag-container">
+              <p>
+                <b>Tags: </b>
+              </p>
+              <app-tag-chip
+                *ngFor="let t of n.tags"
+                [tagLink]="'/'"
+                [tagText]="t"
+              >
+              </app-tag-chip>
             </div>
           </div>
         </div>
@@ -44,4 +59,4 @@
   </div>
 </div>
 
-<!-- <ng-template #noFilter><h2>Lista completa</h2></ng-template> -->
+<ng-template #noFilter><h2>Lista completa</h2></ng-template>

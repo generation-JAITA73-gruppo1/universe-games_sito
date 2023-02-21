@@ -12,36 +12,51 @@
 
 .news-list {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }
 
 .main-content {
   width: 100%;
-  padding: 4rem;
+  padding: 4rem 7rem;
   padding-bottom: 8rem;
 }
 
 .news {
+  background-color: white;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 30rem;
-  /* height: fit-content; */
+  height: 20rem;
+  /* overflow: hidden; */
   width: 100%;
-  padding-bottom: 5rem;
-}
-.text {
-  max-height: 30rem;
-  height: 100%;
-  border: 3px black solid;
-  background-color: darkgray;
-}
-.news-body-text {
-  height: 30rem;
+  box-shadow: 0.2rem 0.2rem 0.2rem black;
+  transition: transform 0.3s;
   overflow: hidden;
+  border-radius: 0.25rem;
 }
 
-.news > .immagine {
-  border: 3px black solid;
+.news:hover {
+  transform: scale(1.012);
+}
+
+.text {
+  height: 100%;
+  width: 100%;
+}
+.news-body-text {
+  max-height: 5rem;
+  text-align: justify;
+}
+
+.news-body-text p {
+  max-height: 5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+}
+
+.immagine {
   height: 100%;
   width: 30rem;
 }
@@ -49,28 +64,45 @@
 .immagine > img {
   object-fit: cover;
   object-position: center;
-  width: 100%;
-  height: auto;
-}
-
-.news > .text {
+  height: 100%;
   width: 100%;
 }
 
 .news-title {
-  padding-top: 1rem;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: darkgray;
-  padding-bottom: 1rem;
+}
+
+.news-title > h2 {
+  padding: 1rem;
+  text-align: left;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.publication-info {
+  background-color: darkred;
+  color: white;
+  padding: 1rem;
   text-align: center;
+  width: 10rem;
 }
 
 .news-body {
-  height: 100%;
-  flex-direction: column;
-  gap: 1rem;
+  max-height: 100%;
+  padding: 1rem 2rem;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.post-divisore {
-  overflow-x: auto;
+.tag-container {
+  display: flex;
+  align-items: center;
 }

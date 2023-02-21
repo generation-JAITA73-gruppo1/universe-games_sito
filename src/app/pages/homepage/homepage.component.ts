@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SelectParams } from 'src/app/model/selection';
@@ -14,16 +15,17 @@ export class HomepageComponent {
   showListaReviews: boolean = false;
 
   constructor(
-    private route: ActivatedRoute // @Inject(DOCUMENT) private document: Document
+    private route: ActivatedRoute,
+    @Inject(DOCUMENT) private document: Document
   ) {}
 
-  //   scrollToTop(): void {
-  //     return this.document.body.scrollIntoView({
-  //       behavior: 'smooth',
-  //       block: 'start',
-  //       inline: 'start',
-  //     });
-  //   }
+  scrollToTop(): void {
+    return this.document.body.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'start',
+    });
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {

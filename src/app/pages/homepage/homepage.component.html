@@ -11,6 +11,10 @@
   <div *ngIf="showListaReviews" class="homepage-body">
     <app-lista-recensioni></app-lista-recensioni>
   </div>
+
+  <div class="toTopButton" (click)="scrollToTop()" *ngIf="!showHomePage">
+    <span class="material-symbols-outlined"> arrow_upward </span>
+  </div>
 </div>
 
 <!-- <div

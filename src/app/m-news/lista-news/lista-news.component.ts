@@ -40,6 +40,7 @@ export class ListaNewsComponent implements OnInit, OnDestroy {
   filterListByCategoria(selectedCategory: string) {
     if (selectedCategory === '') {
       this.newsService.getNews().subscribe((list) => (this.news = list));
+      this.selectedCategoryFilter = selectedCategory;
     } else {
       this.filterSubscription = this.newsService
         .filterNewsByCategoria(selectedCategory)

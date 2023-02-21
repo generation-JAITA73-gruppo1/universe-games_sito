@@ -9,9 +9,12 @@
     </div>
     <div class="descrizione-review">
       <h2>{{ reviewDettaglio.title }}</h2>
-      <h3>{{ reviewDettaglio.score }}/10</h3>
-      <p class="contenuto-preview">{{ reviewDettaglio.content }}</p>
+      <h4>{{ reviewDettaglio.reviewedGame.name }}</h4>
+      <p>di {{ reviewDettaglio.reviewerName }}</p>
     </div>
+    <h3 class="score">
+      <span style="font-size: 2.3rem">{{ reviewDettaglio.score }}</span> /10
+    </h3>
   </div>
 
   <!--- <button [routerLink]="'/dettaglio-games/' + id">dettaglio</button>-->

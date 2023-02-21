@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,10 +6,16 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isSbinnable = false;
+  ding = new Audio();
 
   constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.ding.src = '/assets/sounds/coin_sound.mp3';
+    this.ding.load();
+  }
 
   sbin() {
     this.isSbinnable = true;
@@ -21,9 +27,6 @@ export class HeaderComponent {
   }
 
   playDing() {
-    let audio = new Audio();
-    audio.src = '/assets/sounds/coin_sound.mp3';
-    audio.load();
-    audio.play();
+    this.ding.play();
   }
 }
