@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+!!BEFORE RUNNING THIS APPLICATION, MAKE SURE THAT THE APPLICATION universe-games_cms (and, most importantly, the json-server) IS RUNNING!!
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
