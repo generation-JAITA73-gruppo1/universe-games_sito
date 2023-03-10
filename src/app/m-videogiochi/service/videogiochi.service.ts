@@ -12,7 +12,19 @@ export class VideogiochiService {
   private apiUrl = 'http://localhost:3000/videogame';
 
   getVideogiochi(): Observable<Videogioco[]> {
-    return this.http.get<Videogioco[]>(this.apiUrl);
+    return this.http.get<Videogioco[]>(this.apiUrl).pipe(
+      map((list) => {
+        return list.sort((a, b) => {
+          if (a.title < b.title) {
+            return -1;
+          }
+          if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        });
+      })
+    );
   }
 
   getVideogioco(id: string) {

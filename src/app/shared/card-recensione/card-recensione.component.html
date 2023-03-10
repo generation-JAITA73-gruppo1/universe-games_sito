@@ -10,7 +10,10 @@
     <div class="descrizione-review">
       <h2>{{ reviewDettaglio.title }}</h2>
       <h4>{{ reviewDettaglio.reviewedGame.name }}</h4>
-      <p>di {{ reviewDettaglio.reviewerName }}</p>
+      <p>
+        di {{ reviewDettaglio.reviewerName }} |
+        {{ reviewDettaglio.publicationDate | date : "dd/MM/yy" }}
+      </p>
     </div>
     <h3 class="score">
       <span style="font-size: 2.3rem">{{ reviewDettaglio.score }}</span> /10

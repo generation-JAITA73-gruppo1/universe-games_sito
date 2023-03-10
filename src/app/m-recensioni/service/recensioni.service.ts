@@ -17,7 +17,16 @@ export class RecensioniService {
   private recensione: Recensione[] = [];
 
   getRecensioni(): Observable<Recensione[]> {
-    return this.http.get<Recensione[]>(this.apiUrl);
+    return this.http.get<Recensione[]>(this.apiUrl).pipe(
+      map((list) => {
+        return list.sort((a, b) => {
+          const dt1: any = new Date(a.publicationDate);
+          const dt2: any = new Date(b.publicationDate);
+          console.log('done');
+          return dt2 - dt1;
+        });
+      })
+    );
   }
   getRecensione(id: string) {
     return this.http.get<Recensione>(`${this.apiUrl}/${id}`, {});

@@ -13,7 +13,16 @@ export class NewsService {
   constructor(private http: HttpClient) {}
 
   getNews(): Observable<Notizia[]> {
-    return this.http.get<Notizia[]>(this.apiUrl);
+    return this.http.get<Notizia[]>(this.apiUrl).pipe(
+      map((list) => {
+        return list.sort((a, b) => {
+          const dt1: any = new Date(a.publicationDate);
+          const dt2: any = new Date(b.publicationDate);
+          console.log('done');
+          return dt2 - dt1;
+        });
+      })
+    );
   }
   getNewsId(id: string) {
     return this.http.get<Notizia>(`${this.apiUrl}/${id}`, {});

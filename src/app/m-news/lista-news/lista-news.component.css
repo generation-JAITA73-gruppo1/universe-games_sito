@@ -68,7 +68,7 @@
   width: 100%;
 }
 
-.news-title {
+.news-header {
   height: fit-content;
   display: flex;
   justify-content: space-between;
@@ -76,7 +76,8 @@
   background-color: darkgray;
 }
 
-.news-title h2 {
+.news-header h2,
+.news-header p {
   padding: 1rem;
   text-align: left;
   margin: 0;
@@ -91,6 +92,7 @@
   padding: 1rem;
   text-align: center;
   width: 10rem;
+  height: 100%;
 }
 
 .news-body {
