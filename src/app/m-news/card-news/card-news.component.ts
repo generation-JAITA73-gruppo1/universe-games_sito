@@ -8,8 +8,4 @@ import { Notizia } from 'src/app/model/notizia';
 })
 export class CardNewsComponent {
   @Input() newsDettaglio?: Notizia;
-
-  test() {
-    console.log('click');
-  }
 }

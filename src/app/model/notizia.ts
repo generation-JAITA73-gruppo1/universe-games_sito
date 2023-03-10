@@ -1,5 +1,5 @@
 export interface Notizia {
-  _id: string;
+  id: string;
   title: string;
   category: string;
   imageUrl: string;
@@ -10,7 +10,7 @@ export interface Notizia {
   __v: number;
 }
 
-export type NewNotizia = Omit<Notizia, '_id' | '__v'>;
+export type NewNotizia = Omit<Notizia, 'id' | '__v'>;
 
 export type NotiziaSkimmed = Omit<
   Notizia,

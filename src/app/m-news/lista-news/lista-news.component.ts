@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Selezione } from 'src/app/model/filterSelection';
+import { ChosenFilter, Selezione } from 'src/app/model/filterTypes';
 import { Notizia } from 'src/app/model/notizia';
+import { FilterService } from 'src/app/shared/service/filter.service';
 import { NewsService } from '../service/news.service';
 
 @Component({
@@ -16,45 +17,46 @@ export class ListaNewsComponent implements OnInit, OnDestroy {
   filterTypes: Selezione = {
     categories: true,
     newsAuthorName: true,
-    reviewAuthorName: false,
+    reviewerName: false,
     tag: true,
-    game_id: false,
+    reviewedGame: false,
   };
-  selectedCategoryFilter: string = '';
-  /*
-  STO TRATTANDO LISTA-NEWS COME FOSSE DETTAGLIO PER TESTARE VISUALIZZAZIONE,
-  COLLEGAMENTO COMING SOON
-  TANTO PER LA LISTA BASTA RIPRODURRE CSS  DI OVERVIEW-NEWS SENZA UNA LIMITAZIONE
-  CHE GLI METTEREMO IN VISUALIZZAZIONE(SUL NUMERO DI QUANTE SE NE VEDONO)
-  */
+  selectedFilters?: ChosenFilter;
+
+  //mi dà i filtri selezionati sotto forma di array da stampare nel template
+  selectedFiltersValues!: string[];
+
+  //booleano che mi dice se l'oggetto dei filtri non ha valore
+  noSelectedFilter: boolean = true;
 
   constructor(
     private newsService: NewsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private filtersService: FilterService
   ) {}
 
   ngOnInit(): void {
     this.newsService.getNews().subscribe((list) => (this.news = list));
-  }
 
-  filterListByCategoria(selectedCategory: string) {
-    if (selectedCategory === '') {
-      this.newsService.getNews().subscribe((list) => (this.news = list));
-      this.selectedCategoryFilter = selectedCategory;
-    } else {
-      this.filterSubscription = this.newsService
-        .filterNewsByCategoria(selectedCategory)
-        .subscribe((list) => {
-          this.news = list;
-          this.selectedCategoryFilter = selectedCategory;
-        });
-    }
+    this.filterSubscription = this.filtersService.filtersChanged$.subscribe(
+      (filters) => {
+        this.selectedFilters = filters;
+        // console.log(Object.values(this.selectedFilters));
+        this.noSelectedFilter = Object.values(this.selectedFilters).every(
+          (x) => x == null
+        );
+        this.selectedFiltersValues = Object.values(this.selectedFilters).filter(
+          (x) => x != null
+        );
+
+        this.newsService
+          .filterNewsBy(filters)
+          .subscribe((list) => (this.news = list));
+      }
+    );
   }
 
   ngOnDestroy(): void {
-    if (this.filterSubscription != undefined) {
-      this.filterSubscription.unsubscribe();
-    }
-    this.selectedCategoryFilter !== '';
+    this.filterSubscription.unsubscribe();
   }
 }

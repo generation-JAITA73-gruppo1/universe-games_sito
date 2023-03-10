@@ -7,8 +7,7 @@ import { Categoria } from 'src/app/model/categoria';
   providedIn: 'root',
 })
 export class CategorieService {
-  private apiUrl =
-    'https://project-works-rest-api.onrender.com/api/v1/GROUP-I/category';
+  private apiUrl = 'http://localhost:3000/category';
 
   constructor(private http: HttpClient) {}
 
@@ -20,6 +19,6 @@ export class CategorieService {
   }
 
   readonly categorieNames$: Observable<string[]> = this.getCategorie().pipe(
-    map((list) => list.map((obj) => obj.name))
+    map((list) => list.map((obj) => obj.name).sort())
   );
 }

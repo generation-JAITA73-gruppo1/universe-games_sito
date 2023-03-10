@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, Subject, tap } from 'rxjs';
-import { Recensione } from 'src/app/model/recensione';
+import { ChosenFilter } from 'src/app/model/filterTypes';
+import { Recensione, ReviewedGame } from 'src/app/model/recensione';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecensioniService {
-  private apiUrl =
-    'https://project-works-rest-api.onrender.com/api/v1/GROUP-I/review';
+  private apiUrl = 'http://localhost:3000/review';
 
   constructor(private http: HttpClient) {}
 
@@ -17,15 +17,22 @@ export class RecensioniService {
   private recensione: Recensione[] = [];
 
   getRecensioni(): Observable<Recensione[]> {
-    return this.http.get<Recensione[]>(this.apiUrl);
+    return this.http.get<Recensione[]>(this.apiUrl).pipe(
+      map((list) => {
+        return list.sort((a, b) => {
+          const dt1: any = new Date(a.publicationDate);
+          const dt2: any = new Date(b.publicationDate);
+          console.log('done');
+          return dt2 - dt1;
+        });
+      })
+    );
   }
   getRecensione(id: string) {
     return this.http.get<Recensione>(`${this.apiUrl}/${id}`, {});
   }
 
-  getRecensioniByGameId(videogiocoId: string): Observable<any> {
-    console.log(videogiocoId);
-
+  getRecensioniByreviewedGame(videogiocoId: string): Observable<any> {
     return this.getRecensioni().pipe(
       map((fullList) =>
         fullList.filter(
@@ -36,6 +43,71 @@ export class RecensioniService {
       tap((list) => console.log(list))
     );
   }
+
+  filterReviewsBy(filters: ChosenFilter): Observable<Recensione[]> {
+    console.log(filters);
+
+    const filteredList$: Observable<Recensione[]> = this.getRecensioni().pipe(
+      map((fullList) => {
+        if (filters.reviewerName !== null) {
+          return fullList.filter(
+            (obj) =>
+              obj.reviewerName.toLowerCase() ==
+              filters.reviewerName?.toLowerCase()
+          );
+        } else return fullList;
+      }),
+      map((fullList) => {
+        if (filters.reviewedGame !== null) {
+          return fullList.filter(
+            (obj) =>
+              obj.reviewedGame.id.toLowerCase() ==
+              filters.reviewedGame?.id.toLowerCase()
+          );
+        } else return fullList;
+      })
+    );
+
+    return filteredList$;
+  }
+
+  reviewerNamesList$: Observable<string[]> = this.getRecensioni().pipe(
+    map((list) => {
+      let reviewerList: string[] = [];
+
+      for (let l of list) {
+        if (!reviewerList.includes(l.reviewerName)) {
+          reviewerList.push(l.reviewerName);
+        }
+      }
+
+      return reviewerList.sort();
+    })
+  );
+
+  reviewedGamesList$: Observable<ReviewedGame[]> = this.getRecensioni().pipe(
+    map((list) => {
+      let reviewedGameList: ReviewedGame[] = [];
+
+      for (let l of list) {
+        if (
+          reviewedGameList.findIndex((game) => game.id === l.reviewedGame.id) ==
+          -1
+        ) {
+          reviewedGameList.push(l.reviewedGame);
+        }
+      }
+
+      return reviewedGameList.sort((a, b) => {
+        let titleA = a.name,
+          titleB = b.name;
+
+        if (titleA < titleB) return -1;
+        if (titleA > titleB) return +1;
+        return 0;
+      });
+    })
+  );
 
   sortRecensioniBy(sortType: string): Observable<Recensione[]> {
     console.log(sortType);
@@ -67,5 +139,4 @@ export class RecensioniService {
   //   private getTimo(date?: Date): any {
   //     return date != null ? date.getTime() : 0;
   //   }
-
 }
