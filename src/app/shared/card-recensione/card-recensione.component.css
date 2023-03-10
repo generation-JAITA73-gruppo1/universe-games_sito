@@ -5,7 +5,6 @@
 
 .contenuti-review {
   width: 100%;
-  min-width: 35rem;
   height: 15rem;
   position: relative;
   background-color: white;
@@ -18,18 +17,25 @@
 
 .descrizione-review {
   height: 100%;
+  width: 100%;
   font-size: 1.2rem;
   padding-left: 1.5rem;
-  padding-right: 3rem;
+  padding-right: 2rem;
   padding-top: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 1rem;
+  overflow-x: hidden;
 }
 
 .descrizione-review > * {
   margin: 0;
+  width: 100%;
+  overflow: hidden;
+  /* white-space: nowrap; */
+  overflow-x: hidden;
+  text-overflow: ellipsis;
 }
 
 .score {
@@ -46,31 +52,15 @@
   left: 1rem;
   bottom: 0.5rem;
   user-select: none;
-  box-shadow: 0 0 0.1rem grey;
+  box-shadow: 0 0 0.15rem black;
 }
 
 .contenuti-review:hover {
   transform: scale(1.03);
 }
 
-.contenuto-preview {
-  text-align: center;
-  white-space: nowrap;
-  width: 35rem;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  /*border: 1px solid #000000;*/
-}
-
 .immagini-review {
   height: 100%;
-  max-width: 20rem;
-}
-
-.immagini-review {
-  height: 100%;
-  width: 100%;
-  max-width: 15rem;
-
+  width: 20rem;
   object-fit: cover;
 }

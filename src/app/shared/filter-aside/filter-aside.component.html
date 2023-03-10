@@ -9,34 +9,217 @@
     </span>
   </div>
   <div class="aside-content" [ngClass]="{ 'aside-content-shown': showAside }">
-    <h1 class="cell-format">Scegli il filtro</h1>
+    <h1 class="title-cell">Scegli il filtro</h1>
+    <div class="filter-recap" *ngIf="noSelectedFilters() == false">
+      <div>
+        Filtri selezionati:
+        <ul>
+          <li *ngFor="let f of filterValues">"{{ f }}"</li>
+        </ul>
+      </div>
+    </div>
     <div class="filter-by-category" *ngIf="filterTypes.categories">
-      <div class="cell-format" (click)="showCategoryList = !showCategoryList">
+      <div
+        class="cell-format"
+        (click)="showCategoryList = !showCategoryList"
+        [ngClass]="{ highlighted: showCategoryList }"
+      >
+        <span
+          class="material-symbols-outlined"
+          [ngClass]="{ spin: showCategoryList }"
+        >
+          arrow_right
+        </span>
         <h3>Categoria</h3>
       </div>
       <ul class="category-list" [ngClass]="{ shown: showCategoryList }">
-        <li (click)="selectFilter('')" class="cell-format">Tutte</li>
         <li
-          *ngFor="let c of categoriesList"
-          (click)="selectFilter(c)"
+          (click)="filters.categories = null; higlightSelectedCategory(-1)"
           class="cell-format"
+          id="category-1"
         >
+          Tutte
+        </li>
+        <li
+          *ngFor="let c of categoriesList; let i = index"
+          (click)="filters.categories = c; higlightSelectedCategory(i)"
+          class="cell-format"
+          [id]="'category' + i"
+        >
+          <input type="checkbox" />
           {{ c }}
         </li>
       </ul>
     </div>
-    <!-- <div class="filter-by-author" *ngIf="filterTypes.authorName">
-      <div class="cell-format">Categoria</div>
-      <ul>
-        <li (click)="selectFilter('')"></li>
-        <li
-          *ngFor="let c of categoriesList"
-          (click)="selectFilter(c)"
-          class="cell-format"
+    <div class="filter-by-author" *ngIf="filterTypes.newsAuthorName">
+      <div
+        class="cell-format"
+        (click)="showNewsAuthorList = !showNewsAuthorList"
+        [ngClass]="{
+          highlighted: showNewsAuthorList
+        }"
+      >
+        <span
+          class="material-symbols-outlined"
+          [ngClass]="{ spin: showNewsAuthorList }"
         >
-          {{ c }}
+          arrow_right
+        </span>
+        <h3>Autore</h3>
+      </div>
+      <ul
+        class="news-author-list"
+        [ngClass]="{
+          shown: showNewsAuthorList
+        }"
+      >
+        <li
+          (click)="
+            filters.newsAuthorName = null; higlightSelectedNewsAuthor(-1)
+          "
+          class="cell-format"
+          id="author-1"
+        >
+          Tutti gli autori
+        </li>
+        <li
+          *ngFor="let a of authorNamesList; let i = index"
+          (click)="filters.newsAuthorName = a; higlightSelectedNewsAuthor(i)"
+          class="cell-format"
+          [id]="'author' + i"
+        >
+          <input type="checkbox" />
+          {{ a }}
         </li>
       </ul>
-    </div> -->
+    </div>
+    <div class="filter-by-tag" *ngIf="filterTypes.tag">
+      <div
+        class="cell-format"
+        (click)="showTagList = !showTagList"
+        [ngClass]="{
+          highlighted: showTagList
+        }"
+      >
+        <span
+          class="material-symbols-outlined"
+          [ngClass]="{ spin: showTagList }"
+        >
+          arrow_right
+        </span>
+        <h3>Tag</h3>
+      </div>
+      <ul
+        class="tag-list"
+        [ngClass]="{
+          shown: showTagList
+        }"
+      >
+        <li
+          (click)="filters.tag = null; higlightSelectedTag(-1)"
+          class="cell-format"
+          id="tag-1"
+        >
+          Tutti i tag
+        </li>
+        <li
+          *ngFor="let a of tagList; let i = index"
+          (click)="filters.tag = a; higlightSelectedTag(i)"
+          class="cell-format"
+          [id]="'tag' + i"
+        >
+          <input type="checkbox" />
+          {{ a }}
+        </li>
+      </ul>
+    </div>
+    <div class="filter-by-reviewer" *ngIf="filterTypes.reviewerName">
+      <div
+        class="cell-format"
+        (click)="showReviewerList = !showReviewerList"
+        [ngClass]="{
+          highlighted: showReviewerList
+        }"
+      >
+        <span
+          class="material-symbols-outlined"
+          [ngClass]="{ spin: showReviewerList }"
+        >
+          arrow_right
+        </span>
+        <h3>Autore</h3>
+      </div>
+      <ul
+        class="reviewer-list"
+        [ngClass]="{
+          shown: showReviewerList
+        }"
+      >
+        <li
+          (click)="filters.reviewerName = null; higlightSelectedReviewer(-1)"
+          class="cell-format"
+          id="reviewer-1"
+        >
+          Tutti gli autori
+        </li>
+        <li
+          *ngFor="let r of reviewerList; let i = index"
+          (click)="filters.reviewerName = r; higlightSelectedReviewer(i)"
+          class="cell-format"
+          [id]="'reviewer' + i"
+        >
+          <input type="checkbox" />
+          {{ r }}
+        </li>
+      </ul>
+    </div>
+    <div class="filter-by-game-id" *ngIf="filterTypes.reviewedGame">
+      <div
+        class="cell-format"
+        (click)="showGameList = !showGameList"
+        [ngClass]="{
+          highlighted: showGameList
+        }"
+      >
+        <span
+          class="material-symbols-outlined"
+          [ngClass]="{ spin: showGameList }"
+        >
+          arrow_right
+        </span>
+        <h3>Gioco recensito</h3>
+      </div>
+      <ul
+        class="reviewed-game-list"
+        [ngClass]="{
+          shown: showGameList
+        }"
+      >
+        <li
+          (click)="
+            filters.reviewedGame = null;
+            higlightSelectedReviewedreviewedGame(-1)
+          "
+          class="cell-format"
+          id="reviewed-game-1"
+        >
+          Tutti i giochi
+        </li>
+        <li
+          *ngFor="let g of gameList; let i = index"
+          (click)="
+            filters.reviewedGame = g; higlightSelectedReviewedreviewedGame(i)
+          "
+          class="cell-format"
+          [id]="'reviewed-game' + i"
+        >
+          <input type="checkbox" />
+          {{ g.name }}
+        </li>
+      </ul>
+    </div>
+    <div class="select-button">
+      <button (click)="selectFilter()">Seleziona filtro</button>
+    </div>
   </div>
 </div>

@@ -28,7 +28,6 @@ export class VideogiochiService {
           (obj) => obj.category.toLowerCase() == categoria.toLowerCase()
         )
       )
-      //   tap((list) => console.log(list))
     );
   }
 }

@@ -76,7 +76,7 @@
   background-color: darkgray;
 }
 
-.news-title > h2 {
+.news-title h2 {
   padding: 1rem;
   text-align: left;
   margin: 0;

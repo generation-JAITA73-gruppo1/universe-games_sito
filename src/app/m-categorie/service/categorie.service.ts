@@ -19,6 +19,6 @@ export class CategorieService {
   }
 
   readonly categorieNames$: Observable<string[]> = this.getCategorie().pipe(
-    map((list) => list.map((obj) => obj.name))
+    map((list) => list.map((obj) => obj.name).sort())
   );
 }

@@ -36,7 +36,7 @@ export class DettaglioVideogiocoComponent {
 
         if (this.gamesDettaglio !== undefined) {
           this.recensioniService
-            .getRecensioniByGameId(this.gamesDettaglio.id)
+            .getRecensioniByreviewedGame(this.gamesDettaglio.id)
             .subscribe((recensione) => {
               this.relatedReview = recensione;
             });

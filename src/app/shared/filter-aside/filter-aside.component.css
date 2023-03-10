@@ -53,8 +53,8 @@
 
 .spin {
   transform: rotate(90deg);
-  transition-property: all;
-  transition-duration: 0.6s;
+  /* transition-property: all;
+  transition-duration: 0.6s; */
 }
 
 .aside-content {
@@ -75,8 +75,13 @@
 
 .aside-content ul {
   margin: 0;
+  background-color: rgb(105, 105, 105);
+  margin: 0.5rem 1rem 0.5rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
 }
 
+.title-cell,
 .cell-format {
   color: white;
   font-family: Oswald;
@@ -89,6 +94,8 @@
   height: 3rem;
   user-select: none;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   transition-property: all;
   transition-duration: 0.2s;
 }
@@ -105,10 +112,67 @@
   background-color: gray;
 }
 
-.category-list {
+.filter-recap {
+  font-family: Oswald;
+  color: white;
+  border-radius: 0.25rem;
+  padding: 1.5rem 1rem;
+  margin: 0.5rem;
+  background-color: rgb(105, 105, 105);
+}
+
+.filter-recap ul {
+  padding-left: 2rem;
+  margin: 0;
+}
+
+.filter-recap li {
+  list-style-type: disc;
+}
+
+.category-list,
+.news-author-list,
+.tag-list,
+.reviewer-list,
+.reviewed-game-list {
   display: none;
 }
 
 .shown {
   display: block;
+}
+
+.highlighted {
+  background-color: gray;
+}
+
+.selected {
+  font-weight: 800;
+  background-color: grey;
+}
+
+.select-button button {
+  background-color: transparent;
+  color: white;
+  border: solid 0.2rem white;
+  border-radius: 0.2rem;
+  user-select: none;
+  font-family: Oswald;
+  font-size: 1.1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.select-button button:active {
+  box-shadow: none;
+  opacity: 0.6;
+}
+.select-button button:hover {
+  box-shadow: 0rem 0rem 0.4rem black;
+}
+
+.select-button {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
 }

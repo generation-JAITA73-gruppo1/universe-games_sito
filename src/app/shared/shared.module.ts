@@ -9,6 +9,7 @@ import { SeeMoreButtonComponent } from './see-more-button/see-more-button.compon
 import { CardRecensioneComponent } from './card-recensione/card-recensione.component';
 import { CardVideogiocoComponent } from './card-videogioco/card-videogioco.component';
 import { SortbarComponent } from './sortbar/sortbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { SortbarComponent } from './sortbar/sortbar.component';
     CardVideogiocoComponent,
     SortbarComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   exports: [
     FooterComponent,
     HeaderComponent,

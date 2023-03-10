@@ -1,18 +1,10 @@
 <div class="lista-videogiochi-component">
-  <app-filter-aside
-    (selectedFilter)="filterListByCategoria($event)"
-    [filterTypes]="filterTypes"
-  ></app-filter-aside>
+  <app-filter-aside [filterTypes]="filterTypes"></app-filter-aside>
   <div class="main-content">
-    <div class="list-head">
-      <h2
-        *ngIf="
-          selectedCategoryFilter !== '' && selectedCategoryFilter !== undefined;
-          else noFilter
-        "
-      >
-        Filtrati per
-        {{ selectedCategoryFilter }}
+    <div class="list-head" *ngIf="games != undefined">
+      <h2 *ngIf="!noSelectedFilter; else noFilter">
+        Filtrati per:
+        <span *ngFor="let f of selectedFiltersValues">"{{ f }}" </span>
         ({{
           games.length != 1
             ? games.length + " giochi"
@@ -28,4 +20,10 @@
   </div>
 </div>
 
-<ng-template #noFilter><h2>Lista completa</h2></ng-template>
+<ng-template #noFilter
+  ><h2>
+    Lista completa ({{
+      games.length != 1 ? games.length + " giochi" : games.length + " gioco"
+    }})
+  </h2></ng-template
+>
