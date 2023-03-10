@@ -1,17 +1,11 @@
 <div class="lista-news-component">
-  <app-filter-aside
-    (selectedFilter)="filterListByCategoria($event)"
-    [filterTypes]="filterTypes"
-  ></app-filter-aside>
+  <app-filter-aside [filterTypes]="filterTypes"></app-filter-aside>
   <div class="main-content">
-    <div class="list-head">
-      <h2
-        *ngIf="
-          selectedCategoryFilter !== '' && selectedCategoryFilter !== undefined;
-          else noFilter
-        "
-      >
-        Filtrate per: {{ selectedCategoryFilter }} ({{
+    <div class="list-head" *ngIf="news != undefined">
+      <h2 *ngIf="!noSelectedFilter; else noFilter">
+        Filtrate per:
+        <span *ngFor="let f of selectedFiltersValues">"{{ f }}" </span>
+        ({{
           news.length != 1
             ? news.length + " notizie"
             : news.length + " notizia"
@@ -22,14 +16,17 @@
       <div
         class="news"
         *ngFor="let n of news"
-        [routerLink]="'/dettaglio/news/' + n._id"
+        [routerLink]="'/dettaglio/news/' + n.id"
       >
         <div class="immagine">
           <img [src]="n.imageUrl" [title]="n.imageUrl" [alt]="n.imageUrl" />
         </div>
         <div class="text">
-          <div class="news-title">
-            <h2>{{ n.title }}</h2>
+          <div class="news-header">
+            <div>
+              <h2>{{ n.title }}</h2>
+              <p>{{ n.authorName }}</p>
+            </div>
             <div class="publication-info">
               <h4>{{ n.category }}</h4>
               {{ n.publicationDate | date : "dd/MM/yyyy" }}
@@ -59,4 +56,10 @@
   </div>
 </div>
 
-<ng-template #noFilter><h2>Lista completa</h2></ng-template>
+<ng-template #noFilter
+  ><h2>
+    Lista completa ({{
+      news.length != 1 ? news.length + " notizie" : news.length + " notizia"
+    }})
+  </h2></ng-template
+>

@@ -9,11 +9,22 @@ import { Videogioco } from 'src/app/model/videogioco';
 export class VideogiochiService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl =
-    'https://project-works-rest-api.onrender.com/api/v1/GROUP-I/videogame';
+  private apiUrl = 'http://localhost:3000/videogame';
 
   getVideogiochi(): Observable<Videogioco[]> {
-    return this.http.get<Videogioco[]>(this.apiUrl);
+    return this.http.get<Videogioco[]>(this.apiUrl).pipe(
+      map((list) => {
+        return list.sort((a, b) => {
+          if (a.title < b.title) {
+            return -1;
+          }
+          if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        });
+      })
+    );
   }
 
   getVideogioco(id: string) {
@@ -29,7 +40,6 @@ export class VideogiochiService {
           (obj) => obj.category.toLowerCase() == categoria.toLowerCase()
         )
       )
-      //   tap((list) => console.log(list))
     );
   }
 }

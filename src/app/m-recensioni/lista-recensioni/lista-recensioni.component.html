@@ -1,14 +1,35 @@
 <div class="lista-recensioni-component">
+  <app-filter-aside [filterTypes]="filterTypes"></app-filter-aside>
   <div class="main-content">
+    <div class="list-head" *ngIf="reviews != undefined">
+      <h2 *ngIf="!noSelectedFilter; else noFilter">
+        Filtrate per:
+        <span *ngFor="let f of selectedFiltersValues">"{{ f }}" </span>
+        ({{
+          reviews.length != 1
+            ? reviews.length + " recensioni"
+            : reviews.length + " recensione"
+        }})
+      </h2>
+    </div>
     <!-- <div class="sortbar">
         <app-sortbar (sortType)="sortBy($event)"></app-sortbar>
       </div> -->
     <div class="lista-reviews">
       <app-card-recensione
-        class=""
-        *ngFor="let r of reviews$ | async"
+        *ngFor="let r of reviews"
         [reviewDettaglio]="r"
       ></app-card-recensione>
     </div>
   </div>
 </div>
+
+<ng-template #noFilter
+  ><h2>
+    Lista completa ({{
+      reviews.length != 1
+        ? reviews.length + " recensioni"
+        : reviews.length + " recensione"
+    }})
+  </h2></ng-template
+>
