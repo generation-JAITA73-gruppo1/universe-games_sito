@@ -1,5 +1,7 @@
 # UniverseGamesSito
 
+This project is the website fictitious gaming news outlet "Universe-Games". The original scaffolding data was requested from a mock API; however we decided to switch to a local mock json server for long-time project maintenance (see "Development Server" for more information).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
 ## Development server
